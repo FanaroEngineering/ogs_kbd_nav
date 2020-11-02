@@ -1,0 +1,11 @@
+{
+  "name": "ogs-kbd-nav",
+  "version": "1.0.0",
+  "description": "OGS Keyboard Navigation to the max.",
+  "main": "dist/content.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Philippe Fanaro",
+  "license": "ISC"
+}
