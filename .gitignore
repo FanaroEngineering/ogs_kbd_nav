@@ -1,2 +1,5 @@
 .vscode/
 packages-lock.json
+
+dist/*
+!dist/manifest.json
