@@ -1,0 +1,25 @@
+name: TS
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps: 
+      - name: Checking Node Version
+        run: node -v
+      - name: Installing TypeScript
+        run: npm -i -g typescript
+      - name: Checking TypeScript Version
+        run: tsc -v
