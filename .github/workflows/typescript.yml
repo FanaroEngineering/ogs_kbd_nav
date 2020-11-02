@@ -20,6 +20,6 @@ jobs:
       - name: Checking Node Version
         run: node -v
       - name: Installing TypeScript
-        run: npm install -g typescript
+        run: npm install typescript
       - name: Checking TypeScript Version
         run: tsc -v
