@@ -14,16 +14,28 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 [go]: https://en.wikipedia.org/wiki/Go_(game)
 [ogs]: https://online-go.com/
 
-## 2. Resources
+## 2. Other Resources
 
 Two other examples of keyboard navigation browser extensions:
 
 - [Web Search Navigator][web_search_navigator]: probably one of the best productivity browser extensions out there.
-- [YouTube Kbd Nav][youtube_kbd_nav]: a way of making YouTube 95% &mdash; of the time &mdash; navigable through the keyboard<sup>1</sup>.
+- [YouTube Kbd Nav][youtube_kbd_nav]: a way of making YouTube more navigable 95% of the time, through the keyboard<sup>1</sup>.
 
 
-<sub>1: Created by me, sorry for the self-promotion, but it is really useful I guarantee it!</sub>
+<sub>1: Created by me. Sorry for the self-promotion, but it is really useful, I guarantee it!</sub>
 
 
 [web_search_navigator]: https://github.com/infokiller/web-search-navigator
 [youtube_kbd_nav]: https://github.com/FanaroEngineering/youtube_kbd_nav
+
+## 3. For the Developer
+
+### 3.1. Compiling with TypeScript
+
+The JS code won't be version controlled (`dist`), the programmer should be able to easily recreate it by compiling it from the TS code (`src`).
+
+Simply use this to compile the TS code to JS:
+
+```cmd
+tsc -w
+```
