@@ -16,10 +16,6 @@ jobs:
       matrix:
         node-version: [12.x]
 
-    steps: 
-      - name: Checking Node Version
-        run: node -v
+    steps:
       - name: Installing TypeScript
         run: npm install typescript
-      - name: Checking TypeScript Version
-        run: tsc -v
