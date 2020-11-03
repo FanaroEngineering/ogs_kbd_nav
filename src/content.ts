@@ -5,19 +5,19 @@ class Kbd {
     this.kbdEvt = new KeyboardEvent("keypress");
     document.onkeydown = (evt: KeyboardEvent) => {
       this.kbdEvt = evt;
-      this._keySwitch();
+      this.keySwitch();
     };
   }
 
-  _keySwitch(): void {
+  private keySwitch(): void {
     switch (this.kbdEvt.key) {
       case "m":
-        this._toggleChatInput();
+        this.toggleChatInput();
         break;
     }
   }
 
-  _toggleChatInput(): void {
+  private toggleChatInput(): void {
     const chatInputQuery: string = "div.chat-container > div > input.main";
     const chatInput: HTMLInputElement = document.querySelector(
       chatInputQuery
