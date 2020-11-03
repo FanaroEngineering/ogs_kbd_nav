@@ -23,7 +23,7 @@ class KbddEvtHandler {
       chatInputQuery
     ) as HTMLInputElement;
 
-    if (this.kbdEvt.ctrlKey) {
+    if (this.kbdEvt.ctrlKey && chatInput !== null) {
       document.activeElement == chatInput
         ? chatInput.blur()
         : chatInput.focus();
