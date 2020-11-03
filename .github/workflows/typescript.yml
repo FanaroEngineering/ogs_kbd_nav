@@ -14,7 +14,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: 
+          - 12.x
 
     steps:
       - name: Installing TypeScript

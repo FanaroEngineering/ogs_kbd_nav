@@ -1,5 +1,7 @@
+# Things that should not be tracked in general
 .vscode/
 packages-lock.json
 
+# TS-JS compilation unnecessary stuff
 dist/*
 !dist/manifest.json
