@@ -1,4 +1,4 @@
-class KbddEvtHandler {
+class Kbd {
   private kbdEvt: KeyboardEvent;
 
   constructor() {
@@ -23,12 +23,12 @@ class KbddEvtHandler {
       chatInputQuery
     ) as HTMLInputElement;
 
-    if (this.kbdEvt.ctrlKey && chatInput !== null) {
+    if (this.kbdEvt.ctrlKey) {
       document.activeElement == chatInput
-        ? chatInput.blur()
-        : chatInput.focus();
+        ? chatInput?.blur()
+        : chatInput?.focus();
     }
   }
 }
 
-const kbddEvtHandler = new KbddEvtHandler();
+const kbd: Kbd = new Kbd();
