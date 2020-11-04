@@ -4,8 +4,13 @@
   "description": "OGS Keyboard Navigation to the max.",
   "main": "dist/content.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Philippe Fanaro",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.2",
+    "ts-jest": "^26.4.3"
+  }
 }
