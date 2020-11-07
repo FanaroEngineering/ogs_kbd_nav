@@ -26,7 +26,7 @@ test("Moving to the left changes the initial coordinates to be (90, 100)", () =>
   stoneMarker.moveLeft();
 
   expect(stoneMarker.x).toBe(90);
-  expect(stoneMarker.y).toBe(100);
+  expect(stoneMarker.y).toBe(100); 
 });
 
 test("Moving upwards changes the initial coordinates to be (100, 90)", () => {

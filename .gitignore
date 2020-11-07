@@ -5,4 +5,4 @@ package-lock.json
 
 # TS-JS compilation unnecessary stuff
 dist/*
-!dist/manifest.json
+!dist/src/manifest.json
