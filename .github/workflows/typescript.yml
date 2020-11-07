@@ -19,12 +19,10 @@ jobs:
 
     steps:
       - name: Installing TypeScript
-        run: sudo npm i -g typescript
+        run: npm i -D typescript
       - name: Installing Jest
-        run: sudo npm i -g jest
-      - name: Folders
-        run: sudo ls -ah
+        run: npm i -D jest
       - name: Compiling TypeScript Code
-        run: tsc -p .
+        run: tsc
       - name: Running Tests
         run: npm t
