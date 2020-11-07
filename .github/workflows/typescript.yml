@@ -23,8 +23,8 @@ jobs:
       - name: Installing Jest
         run: sudo npm i -g jest
       - name: Folders
-        run: cd ogs_kbd_nav && pwd
+        run: pwd
       - name: Compiling TypeScript Code
-        run: tsc --project tsconfig.json
+        run: tsc lib/src/*.ts
       - name: Running Tests
         run: npm t
