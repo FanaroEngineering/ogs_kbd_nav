@@ -15,6 +15,18 @@ export default class StoneMarker {
     this._x += this.diameter;
   }
 
+  moveDown(): void {
+    this._y += this.diameter;
+  }
+
+  moveLeft(): void {
+    this._x -= this.diameter;
+  }
+
+  moveUp(): void {
+    this._y -= this.diameter;
+  }
+
   draw(): void {
     const canvas: HTMLCanvasElement = document.querySelector(
       "canvas.StoneLayer"

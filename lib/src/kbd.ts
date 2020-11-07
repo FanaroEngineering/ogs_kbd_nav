@@ -22,6 +22,15 @@ export default class Kbd {
       case "Right":
         this.stoneMarker.moveRight();
         break;
+      case "Down":
+        this.stoneMarker.moveDown();
+        break;
+      case "Left":
+        this.stoneMarker.moveLeft();
+        break;
+      case "Up":
+        this.stoneMarker.moveUp();
+        break;
     }
   }
 
