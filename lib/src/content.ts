@@ -1,3 +1,5 @@
 import Kbd from "./kbd";
 
-new Kbd();
+const kbd: Kbd = new Kbd();
+
+console.log(kbd);

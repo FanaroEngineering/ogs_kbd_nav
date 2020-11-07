@@ -21,7 +21,7 @@ jobs:
       - name: Checking out the Project's Code
         uses: actions/checkout@v2
       - name: Installing TypeScript
-        run: npm i
+        run: npm ci
       - name: Compiling TypeScript Code
         run: tsc
       - name: Running Tests
