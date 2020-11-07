@@ -23,7 +23,7 @@ jobs:
       - name: Installing Jest
         run: sudo npm i -g jest
       - name: Folders
-        run: ls -a
+        run: sudo ls -a
       - name: Compiling TypeScript Code
         run: tsc --project tsconfig.json
       - name: Running Tests
