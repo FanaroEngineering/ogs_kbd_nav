@@ -1,5 +1,10 @@
+import Chat from "./chat";
+import StoneMarker from "./stone_marker";
+
 export default class Kbd {
   private kbdEvt: KeyboardEvent;
+  private readonly chat: Chat = new Chat();
+  private readonly stoneMarker: StoneMarker = new StoneMarker();
 
   constructor() {
     this.kbdEvt = new KeyboardEvent("keypress");
@@ -14,18 +19,13 @@ export default class Kbd {
       case "m":
         this.toggleChatInput();
         break;
+      case "Right":
+        this.stoneMarker.moveRight();
+        break;
     }
   }
 
   private toggleChatInput(): void {
-    const chatInputQuery: string = "div.chat-container > div > input.main";
-    const chatInput: HTMLInputElement = document.querySelector(
-      chatInputQuery
-    ) as HTMLInputElement;
-
-    if (this.kbdEvt.ctrlKey)
-      document.activeElement == chatInput
-        ? chatInput?.blur()
-        : chatInput?.focus();
+    if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
   }
 }

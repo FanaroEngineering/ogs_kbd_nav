@@ -4,8 +4,8 @@
   "description": "OGS Keyboard Navigation to the max.",
   "main": "dist/content.js",
   "scripts": {
-    "test": "jest",
-    "testwatch": "jest --watchAll"
+    "test": "jest ./dist/tests",
+    "testwatch": "jest --watchAll ./dist/tests"
   },
   "author": "Philippe Fanaro",
   "license": "ISC",
