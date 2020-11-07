@@ -19,9 +19,7 @@ jobs:
 
     steps:
       - name: Installing TypeScript
-        run: npm i -D typescript
-      - name: Installing Jest
-        run: npm i -D jest
+        run: npm i --all
       - name: Compiling TypeScript Code
         run: tsc
       - name: Running Tests
