@@ -19,12 +19,10 @@ jobs:
 
     steps:
       - name: Installing TypeScript
-        run: npm install --save-dev typescript
+        run: npm i -g typescript
       - name: Installing Jest
-        run: npm install --save-dev jest
-      - name: Folders
-        run: pwd
+        run: npm i -g jest
       - name: Compiling TypeScript Code
-        run: tsc
+        run: tsc --project tsconfig.json
       - name: Running Tests
         run: npm t
