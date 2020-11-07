@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "OGS Kbd Nav",
+    "version": "0.0.2",
+    "description": "OGS keyboard navigation to the max.",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.online-go.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
