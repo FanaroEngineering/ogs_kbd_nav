@@ -18,8 +18,10 @@ jobs:
           - 12.x
 
     steps:
+      - name: Checking out the Project's Code
+        uses: actions/checkout@v2
       - name: Installing TypeScript
-        run: npm i -g --all
+        run: npm i
       - name: Compiling TypeScript Code
         run: tsc
       - name: Running Tests
