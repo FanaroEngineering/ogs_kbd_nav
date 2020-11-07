@@ -22,5 +22,7 @@ jobs:
         run: npm install typescript
       - name: Installing Jest
         run: npm install --save-dev jest
+      - name: Compiling TypeScript Code
+        run: tsc
       - name: Running Tests
         run: npm t
