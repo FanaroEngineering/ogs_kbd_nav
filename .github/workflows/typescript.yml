@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Installing TypeScript
-        run: npm i --all
+        run: npm i -g --all
       - name: Compiling TypeScript Code
         run: tsc
       - name: Running Tests
