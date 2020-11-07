@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Installing TypeScript
-        run: npm install typescript
+        run: npm install --save-dev typescript
       - name: Installing Jest
         run: npm install --save-dev jest
       - name: Compiling TypeScript Code
