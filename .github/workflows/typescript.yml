@@ -25,6 +25,6 @@ jobs:
       - name: Folders
         run: pwd
       - name: Compiling TypeScript Code
-        run: tsc lib/src/*.ts
+        run: tsc
       - name: Running Tests
         run: npm t
