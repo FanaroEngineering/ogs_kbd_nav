@@ -19,9 +19,9 @@ jobs:
 
     steps:
       - name: Installing TypeScript
-        run: npm i -g typescript
+        run: sudo npm i -g typescript
       - name: Installing Jest
-        run: npm i -g jest
+        run: sudo npm i -g jest
       - name: Compiling TypeScript Code
         run: tsc --project tsconfig.json
       - name: Running Tests
