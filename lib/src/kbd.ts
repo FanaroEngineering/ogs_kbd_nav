@@ -20,16 +20,16 @@ export default class Kbd {
       case "m":
         this.toggleChatInput();
         break;
-      case "Right":
+      case "ArrowRight":
         this.stoneMarker.moveRight();
         break;
-      case "Down":
+      case "ArrowDown":
         this.stoneMarker.moveDown();
         break;
-      case "Left":
+      case "ArrowLeft":
         this.stoneMarker.moveLeft();
         break;
-      case "Up":
+      case "ArrowUp":
         this.stoneMarker.moveUp();
         break;
     }

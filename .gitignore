@@ -4,6 +4,4 @@ node_modules/
 
 # TS-JS compilation unnecessary stuff
 dist/*
-!dist/src
-dist/src/*
-!dist/src/manifest.json
+!dist/manifest.json
