@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es2015",
+    "target": "esnext",
+    "module": "commonjs",
     "sourceMap": true,
     "outDir": "./dist/",
     "rootDir": "./lib/",

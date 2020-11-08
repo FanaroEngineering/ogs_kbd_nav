@@ -40,7 +40,17 @@ Simply use this to compile the TS code to JS:
 tsc -w
 ```
 
-### 3.2. Running Tests
+### 3.2. Compiling with Webpack
+
+After installing the `webpack-cli` package, run:
+
+```cmd
+npx webpack -w
+```
+
+to enable compilation bundling and minifying on watch mode.
+
+### 3.3. Running Tests
 
 If you use `tsc -w`, you can either use `npm t` to run tests with [Jest][jest] or use the following to watch the tests as the code changes with `tsc -w`:
 
