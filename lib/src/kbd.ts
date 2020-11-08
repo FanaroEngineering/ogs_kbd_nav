@@ -1,5 +1,5 @@
-import Chat from "./chat";
-import StoneMarker from "./stone_marker";
+import Chat from "./components/chat";
+import StoneMarker, { Direction } from "./components/stone_marker";
 
 export default class Kbd {
   private kbdEvt: KeyboardEvent;
@@ -20,16 +20,16 @@ export default class Kbd {
         this.toggleChatInput();
         break;
       case "ArrowRight":
-        this.stoneMarker.moveRight();
+        this.stoneMarker.move(Direction.right);
         break;
       case "ArrowDown":
-        this.stoneMarker.moveDown();
+        this.stoneMarker.move(Direction.down);
         break;
       case "ArrowLeft":
-        this.stoneMarker.moveLeft();
+        this.stoneMarker.move(Direction.left);
         break;
       case "ArrowUp":
-        this.stoneMarker.moveUp();
+        this.stoneMarker.move(Direction.up);
         break;
     }
   }
