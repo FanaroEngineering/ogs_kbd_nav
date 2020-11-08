@@ -1,22 +1,22 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './lib/src/content.ts',
-  devtool: 'inline-source-map',
+  entry: "./lib/src/content.ts",
+  devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: [ '.ts' ],
+    extensions: [".ts"],
   },
   output: {
-    filename: 'content.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "content.js",
+    path: path.resolve(__dirname, "dist/prod"),
   },
 };

@@ -15,7 +15,6 @@ export default class Kbd {
   }
 
   private keySwitch(): void {
-    console.log(this.kbdEvt.key);
     switch (this.kbdEvt.key) {
       case "m":
         this.toggleChatInput();

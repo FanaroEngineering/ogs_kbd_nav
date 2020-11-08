@@ -5,8 +5,8 @@
   "main": "dist/content.js",
   "scripts": {
     "build": "webpack",
-    "test": "jest ./dist/tests",
-    "testwatch": "jest --watchAll ./dist/tests"
+    "test": "jest ./dist/dev",
+    "testwatch": "jest --watchAll ./dist/dev"
   },
   "author": "Philippe Fanaro",
   "license": "ISC",

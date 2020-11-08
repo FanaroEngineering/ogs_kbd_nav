@@ -60,3 +60,13 @@ npm t -- --watch
 
 
 [jest]: https://jestjs.io/en/
+
+### 3.4. The Complete Development Setup
+
+The current setup will compile TS code to JS into the `dist/dev` folder for testing purposes (TDD), while compiling production code into the `dist/prod` folder for (manual) testing inside the browser.
+
+You can achieve all of that at the same time by opening at least 3 terminals and running the following under watch mode &mdash; these commands were all described in the sections above &mdash;:
+
+- `tsc -w`
+- `npx webpack -w`
+- `npm t -- --watch`
