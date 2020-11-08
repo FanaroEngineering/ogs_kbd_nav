@@ -1,10 +1,10 @@
 export default class StoneMarker {
-  static radius: number = 5;
+  static radius: number = 10;
   /**
    * The `diameter` will not be programmatically tied in order to avoid floating
    * points misalignments.
    */
-  static diameter: number = 10;
+  static diameter: number = 20;
 
   constructor(
     public readonly x: number = 100,
