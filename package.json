@@ -2,14 +2,14 @@
   "name": "ogs-kbd-nav",
   "version": "0.0.1",
   "description": "OGS Keyboard Navigation to the max.",
+  "author": "Philippe Fanaro",
+  "license": "ISC",
   "main": "dist/content.js",
   "scripts": {
     "build": "webpack",
     "test": "jest ./dist/dev",
     "testwatch": "jest --watchAll ./dist/dev"
   },
-  "author": "Philippe Fanaro",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.15",
     "jest": "^26.6.2",
