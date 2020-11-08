@@ -4,10 +4,14 @@ import StoneMarkerUi, { Direction } from "./ui/stone_marker_ui";
 export default class Kbd {
   private kbdEvt: KeyboardEvent;
   private readonly chat: Chat = new Chat();
-  private readonly stoneMarkerUi: StoneMarkerUi = new StoneMarkerUi();
+  private stoneMarkerUi: StoneMarkerUi | null = null;
 
   constructor() {
     this.kbdEvt = new KeyboardEvent("keypress");
+    window.onload = (_: Event) => {
+      console.log('loaded');
+      this.stoneMarkerUi = new StoneMarkerUi();
+    };
     document.onkeydown = (evt: KeyboardEvent) => {
       this.kbdEvt = evt;
       this.keySwitch();
@@ -20,16 +24,16 @@ export default class Kbd {
         this.toggleChatInput();
         break;
       case "ArrowRight":
-        this.stoneMarkerUi.move(Direction.right);
+        this.stoneMarkerUi?.move(Direction.right);
         break;
       case "ArrowDown":
-        this.stoneMarkerUi.move(Direction.down);
+        this.stoneMarkerUi?.move(Direction.down);
         break;
       case "ArrowLeft":
-        this.stoneMarkerUi.move(Direction.left);
+        this.stoneMarkerUi?.move(Direction.left);
         break;
       case "ArrowUp":
-        this.stoneMarkerUi.move(Direction.up);
+        this.stoneMarkerUi?.move(Direction.up);
         break;
     }
   }
