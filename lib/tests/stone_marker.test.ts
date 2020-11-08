@@ -1,4 +1,4 @@
-import StoneMarker, { Direction } from "../src/components/stone_marker";
+import StoneMarker from "../src/components/stone_marker";
 
 test("The stone marker is initialized with (100, 100) as coordinates", () => {
   expect(new StoneMarker().x).toBe(100);
@@ -7,7 +7,7 @@ test("The stone marker is initialized with (100, 100) as coordinates", () => {
 
 test("Moving to the right changes the initial coordinates to be (110, 100)", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
-  const movedStoneMarker: StoneMarker = stoneMarker.move(Direction.right);
+  const movedStoneMarker: StoneMarker = stoneMarker.moveRight();
 
   expect(stoneMarker.x).toBe(100);
   expect(stoneMarker.y).toBe(100);
@@ -17,7 +17,7 @@ test("Moving to the right changes the initial coordinates to be (110, 100)", () 
 
 test("Moving downwards changes the initial coordinates to be (100, 110)", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
-  const movedStoneMarker: StoneMarker = stoneMarker.move(Direction.down);
+  const movedStoneMarker: StoneMarker = stoneMarker.moveDown();
   
   expect(stoneMarker.x).toBe(100);
   expect(stoneMarker.y).toBe(100);
@@ -27,7 +27,7 @@ test("Moving downwards changes the initial coordinates to be (100, 110)", () => 
 
 test("Moving to the left changes the initial coordinates to be (90, 100)", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
-  const movedStoneMarker: StoneMarker = stoneMarker.move(Direction.left);
+  const movedStoneMarker: StoneMarker = stoneMarker.moveLeft();
   
   expect(stoneMarker.x).toBe(100);
   expect(stoneMarker.y).toBe(100);
@@ -37,7 +37,7 @@ test("Moving to the left changes the initial coordinates to be (90, 100)", () =>
 
 test("Moving upwards changes the initial coordinates to be (100, 90)", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
-  const movedStoneMarker: StoneMarker = stoneMarker.move(Direction.up);
+  const movedStoneMarker: StoneMarker = stoneMarker.moveUp();
   
   expect(stoneMarker.x).toBe(100);
   expect(stoneMarker.y).toBe(100);

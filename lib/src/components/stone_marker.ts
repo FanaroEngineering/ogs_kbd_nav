@@ -1,10 +1,3 @@
-export enum Direction {
-  right,
-  down,
-  left,
-  up,
-}
-
 export default class StoneMarker {
   static radius: number = 5;
   /**
@@ -18,32 +11,19 @@ export default class StoneMarker {
     public readonly y: number = 100
   ) {}
 
-  move(direction: Direction): StoneMarker {
-    switch (direction) {
-      case Direction.right:
-        return this.moveRight();
-      case Direction.down:
-        return this.moveDown();
-      case Direction.left:
-        return this.moveLeft();
-      case Direction.up:
-        return this.moveUp();
-    }
-  }
-
-  private moveRight(): StoneMarker {
+  moveRight(): StoneMarker {
     return new StoneMarker(this.x + StoneMarker.diameter, this.y);
   }
 
-  private moveDown(): StoneMarker {
+  moveDown(): StoneMarker {
     return new StoneMarker(this.x, this.y + StoneMarker.diameter);
   }
 
-  private moveLeft(): StoneMarker {
+  moveLeft(): StoneMarker {
     return new StoneMarker(this.x - StoneMarker.diameter, this.y);
   }
 
-  private moveUp(): StoneMarker {
+  moveUp(): StoneMarker {
     return new StoneMarker(this.x, this.y - StoneMarker.diameter);
   }
 }
