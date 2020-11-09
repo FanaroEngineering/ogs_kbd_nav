@@ -24,7 +24,7 @@ export default class StoneMarkerUi {
   private configureStoneMarkerCanvas = (): void => {
     const shadowCanvas: HTMLCanvasElement = document.querySelector(
       StoneMarkerUi.shadowCanvasQuery
-    )! as HTMLCanvasElement;
+    ) as HTMLCanvasElement;
     const width: number = shadowCanvas.width;
     const height: number = shadowCanvas.height;
 
@@ -38,7 +38,7 @@ export default class StoneMarkerUi {
   private appendStoneMarkerCanvas = (): void => {
     const gobanDiv: HTMLDivElement = document.querySelector(
       "div.Goban > div"
-    )! as HTMLDivElement;
+    ) as HTMLDivElement;
     gobanDiv.append(this.stoneMarkerCanvas);
   };
 
