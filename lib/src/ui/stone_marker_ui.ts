@@ -12,29 +12,35 @@ export default class StoneMarkerUi {
     "div.Goban > div > canvas#shadow-canvas";
 
   private stoneMarker: StoneMarker = new StoneMarker();
-  private stoneMarkerCanvas: HTMLCanvasElement;
+  private stoneMarkerCanvas: HTMLCanvasElement = document.createElement(
+    "canvas"
+  ) as HTMLCanvasElement;
 
   constructor() {
+    this.configureStoneMarkerCanvas();
+    this.appendStoneMarkerCanvas();
+  }
+
+  private configureStoneMarkerCanvas = (): void => {
     const shadowCanvas: HTMLCanvasElement = document.querySelector(
       StoneMarkerUi.shadowCanvasQuery
     )! as HTMLCanvasElement;
     const width: number = shadowCanvas.width;
     const height: number = shadowCanvas.height;
 
-    this.stoneMarkerCanvas = document.createElement(
-      "canvas"
-    ) as HTMLCanvasElement;
     this.stoneMarkerCanvas.id = "stone-marker";
     this.stoneMarkerCanvas.style.zIndex = "21";
     this.stoneMarkerCanvas.style.position = "absolute";
     this.stoneMarkerCanvas.width = width;
     this.stoneMarkerCanvas.height = height;
+  };
 
+  private appendStoneMarkerCanvas = (): void => {
     const gobanDiv: HTMLDivElement = document.querySelector(
       "div.Goban > div"
     )! as HTMLDivElement;
     gobanDiv.append(this.stoneMarkerCanvas);
-  }
+  };
 
   private clear = (): void =>
     this.stoneMarkerCanvas
