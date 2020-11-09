@@ -2,19 +2,18 @@ import Chat from "./chat";
 import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
 
 export default class Kbd {
-  private kbdEvt: KeyboardEvent;
+  private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
   private readonly chat: Chat = new Chat();
   private stoneMarkerUi: StoneMarkerUi | null = null;
 
   constructor() {
-    this.kbdEvt = new KeyboardEvent("keypress");
     window.onload = this.onload;
     document.onkeydown = this.onkeydown;
   }
 
   private onload = (_: Event) => {
     const checkExist: NodeJS.Timeout = setInterval(() => {
-      if (document.querySelector("div.Goban > div > canvas#shadow-canvas") !== null) {
+      if (document.querySelector(StoneMarkerUi.shadowCanvasQuery) !== null) {
         this.stoneMarkerUi = new StoneMarkerUi();
         clearInterval(checkExist);
       }

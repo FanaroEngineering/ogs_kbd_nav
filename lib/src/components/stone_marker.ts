@@ -1,7 +1,7 @@
 export default class StoneMarker {
-  static radius: number = 8;
-  private static diameter: number = 2 * StoneMarker.radius;
-  private static extraDiff: number = 8;
+  static readonly radius: number = 8;
+  private static readonly diameter: number = 2 * StoneMarker.radius;
+  private static readonly extraDiff: number = 8;
 
   constructor(
     public readonly x: number = 83.5,

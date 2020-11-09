@@ -8,6 +8,9 @@ export enum Direction {
 }
 
 export default class StoneMarkerUi {
+  static readonly shadowCanvasQuery: string =
+    "div.Goban > div > canvas#shadow-canvas";
+
   private stoneMarker: StoneMarker = new StoneMarker();
   private stoneMarkerCanvas: HTMLCanvasElement;
 
@@ -16,7 +19,7 @@ export default class StoneMarkerUi {
       "div.Goban > div"
     )! as HTMLDivElement;
     const shadowCanvas: HTMLCanvasElement = document.querySelector(
-      "div.Goban > div > canvas#shadow-canvas"
+      StoneMarkerUi.shadowCanvasQuery
     )! as HTMLCanvasElement;
     const width: number = shadowCanvas.width;
     const height: number = shadowCanvas.height;
