@@ -33,7 +33,7 @@ export default class StoneMarkerUi {
     gobanDiv.append(this.stoneMarkerCanvas);
   }
 
-  clear(): void {
+  clear = (): void =>
     this.stoneMarkerCanvas
       .getContext("2d")
       ?.clearRect(
@@ -42,9 +42,8 @@ export default class StoneMarkerUi {
         this.stoneMarkerCanvas.width,
         this.stoneMarkerCanvas.height
       );
-  }
 
-  move(direction: Direction): void {
+  move = (direction: Direction): void => {
     this.clear();
     switch (direction) {
       case Direction.right:
@@ -61,9 +60,9 @@ export default class StoneMarkerUi {
         break;
     }
     this.draw();
-  }
+  };
 
-  private draw(): void {
+  private draw = (): void => {
     const context: CanvasRenderingContext2D = this.stoneMarkerCanvas.getContext(
       "2d"
     )!;
@@ -79,5 +78,5 @@ export default class StoneMarkerUi {
     context.lineWidth = 3;
     context.strokeStyle = "green";
     context.stroke();
-  }
+  };
 }

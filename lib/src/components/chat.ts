@@ -1,5 +1,5 @@
 export default class Chat {
-  toggleChatInput(): void {
+  toggleChatInput = (): void => {
     const chatInputQuery: string = "div.chat-container > div > input.main";
     const chatInput: HTMLInputElement = document.querySelector(
       chatInputQuery
@@ -8,5 +8,5 @@ export default class Chat {
     document.activeElement == chatInput
       ? chatInput?.blur()
       : chatInput?.focus();
-  }
+  };
 }

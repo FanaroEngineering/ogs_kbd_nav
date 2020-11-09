@@ -15,7 +15,7 @@ export default class Kbd {
     };
   }
 
-  private keySwitch(): void {
+  private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
       case "m":
         this.toggleChatInput();
@@ -35,7 +35,7 @@ export default class Kbd {
     }
   }
 
-  private toggleChatInput(): void {
+  private toggleChatInput = (): void => {
     if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
   }
 }

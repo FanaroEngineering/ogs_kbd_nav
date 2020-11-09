@@ -1,6 +1,6 @@
 export default class StoneMarker {
   static radius: number = 8;
-  static diameter: number = 2 * StoneMarker.radius;
+  private static diameter: number = 2 * StoneMarker.radius;
   private static extraDiff: number = 8;
 
   constructor(
@@ -8,31 +8,27 @@ export default class StoneMarker {
     public readonly y: number = 131.5
   ) {}
 
-  moveRight(): StoneMarker {
-    return new StoneMarker(
+  moveRight = (): StoneMarker =>
+    new StoneMarker(
       this.x + StoneMarker.diameter + StoneMarker.extraDiff,
       this.y
     );
-  }
 
-  moveDown(): StoneMarker {
-    return new StoneMarker(
+  moveDown = (): StoneMarker =>
+    new StoneMarker(
       this.x,
       this.y + StoneMarker.diameter + StoneMarker.extraDiff
     );
-  }
 
-  moveLeft(): StoneMarker {
-    return new StoneMarker(
+  moveLeft = (): StoneMarker =>
+    new StoneMarker(
       this.x - StoneMarker.diameter - StoneMarker.extraDiff,
       this.y
     );
-  }
 
-  moveUp(): StoneMarker {
-    return new StoneMarker(
+  moveUp = (): StoneMarker =>
+    new StoneMarker(
       this.x,
       this.y - StoneMarker.diameter - StoneMarker.extraDiff
     );
-  }
 }
