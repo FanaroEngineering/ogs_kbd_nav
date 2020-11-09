@@ -21,17 +21,11 @@ export default class StoneMarkerUi {
     const width: number = shadowCanvas.width;
     const height: number = shadowCanvas.height;
 
-    shadowCanvas.style.zIndex = "0";
-    const boardCanvas: HTMLCanvasElement = document.querySelector(
-      "div.Goban > div > canvas#board-canvas"
-    ) as HTMLCanvasElement;
-    boardCanvas.style.zIndex = "1";
-
     this.stoneMarkerCanvas = document.createElement(
       "canvas"
     ) as HTMLCanvasElement;
     this.stoneMarkerCanvas.id = "stone-marker";
-    this.stoneMarkerCanvas.style.zIndex = "1000";
+    this.stoneMarkerCanvas.style.zIndex = "21";
     this.stoneMarkerCanvas.style.position = "absolute";
     this.stoneMarkerCanvas.width = width;
     this.stoneMarkerCanvas.height = height;
@@ -82,8 +76,8 @@ export default class StoneMarkerUi {
       0,
       2 * Math.PI
     );
-    context.lineWidth = 2;
-    context.strokeStyle = "black";
+    context.lineWidth = 3;
+    context.strokeStyle = "green";
     context.stroke();
   }
 }

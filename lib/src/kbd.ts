@@ -8,10 +8,7 @@ export default class Kbd {
 
   constructor() {
     this.kbdEvt = new KeyboardEvent("keypress");
-    window.onload = (_: Event) => {
-      console.log('loaded');
-      this.stoneMarkerUi = new StoneMarkerUi();
-    };
+    window.onload = (_: Event) => (this.stoneMarkerUi = new StoneMarkerUi());
     document.onkeydown = (evt: KeyboardEvent) => {
       this.kbdEvt = evt;
       this.keySwitch();
