@@ -8,12 +8,23 @@ export default class Kbd {
 
   constructor() {
     this.kbdEvt = new KeyboardEvent("keypress");
-    window.onload = (_: Event) => (this.stoneMarkerUi = new StoneMarkerUi());
-    document.onkeydown = (evt: KeyboardEvent) => {
-      this.kbdEvt = evt;
-      this.keySwitch();
-    };
+    window.onload = this.onload;
+    document.onkeydown = this.onkeydown;
   }
+
+  private onload = (_: Event) => {
+    const checkExist: NodeJS.Timeout = setInterval(() => {
+      if (document.querySelector("div.Goban > div > canvas#shadow-canvas") !== null) {
+        this.stoneMarkerUi = new StoneMarkerUi();
+        clearInterval(checkExist);
+      }
+    }, 100);
+  };
+
+  private onkeydown = (evt: KeyboardEvent) => {
+    this.kbdEvt = evt;
+    this.keySwitch();
+  };
 
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
@@ -33,9 +44,9 @@ export default class Kbd {
         this.stoneMarkerUi?.move(Direction.up);
         break;
     }
-  }
+  };
 
   private toggleChatInput = (): void => {
     if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
-  }
+  };
 }
