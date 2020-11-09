@@ -1,3 +1,3 @@
-import Kbd from "./kbd";
+import Kbd from "./components/kbd";
 
 new Kbd();

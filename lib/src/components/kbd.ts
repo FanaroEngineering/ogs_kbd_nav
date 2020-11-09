@@ -1,5 +1,5 @@
-import Chat from "./components/chat";
-import StoneMarkerUi, { Direction } from "./ui/stone_marker_ui";
+import Chat from "./chat";
+import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
 
 export default class Kbd {
   private kbdEvt: KeyboardEvent;
