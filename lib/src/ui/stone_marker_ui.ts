@@ -33,7 +33,7 @@ export default class StoneMarkerUi {
     gobanDiv.append(this.stoneMarkerCanvas);
   }
 
-  clear = (): void =>
+  private clear = (): void =>
     this.stoneMarkerCanvas
       .getContext("2d")
       ?.clearRect(
@@ -45,6 +45,11 @@ export default class StoneMarkerUi {
 
   move = (direction: Direction): void => {
     this.clear();
+    this.moveSwitch(direction);
+    this.draw();
+  };
+
+  private moveSwitch = (direction: Direction): void => {
     switch (direction) {
       case Direction.right:
         this.stoneMarker = this.stoneMarker.moveRight();
@@ -59,7 +64,6 @@ export default class StoneMarkerUi {
         this.stoneMarker = this.stoneMarker.moveUp();
         break;
     }
-    this.draw();
   };
 
   private draw = (): void => {
