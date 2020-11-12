@@ -84,7 +84,7 @@ export default class StoneMarkerUi {
     context.arc(
       this.stoneMarker.x,
       this.stoneMarker.y,
-      StoneMarker.radius,
+      this.stoneMarker.radius,
       0,
       2 * Math.PI
     );
