@@ -42,6 +42,10 @@ export default class Kbd {
       case "ArrowUp":
         this.stoneMarkerUi?.move(Direction.up);
         break;
+      case "Enter":
+        this.stoneMarkerUi?.click();
+        console.log("enter");
+        break;
     }
   };
 

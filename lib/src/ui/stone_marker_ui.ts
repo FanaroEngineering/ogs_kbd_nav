@@ -92,4 +92,32 @@ export default class StoneMarkerUi {
     context.strokeStyle = "green";
     context.stroke();
   };
+
+  click = (): void => {
+    const clickEvent = document.createEvent("MouseEvents");
+    clickEvent.initMouseEvent(
+      "mousedown",
+      true,
+      true,
+      window,
+      0,
+      0,
+      0,
+      this.stoneMarker.x,
+      this.stoneMarker.y,
+      false,
+      false,
+      false,
+      false,
+      0,
+      null
+    );
+
+    const gameCanvasQuery: string = "div.Goban > div > canvas#board-canvas";
+    const gameCanvas: HTMLCanvasElement = document.querySelector(
+      gameCanvasQuery
+    ) as HTMLCanvasElement;
+
+    gameCanvas?.dispatchEvent(clickEvent);
+  };
 }
