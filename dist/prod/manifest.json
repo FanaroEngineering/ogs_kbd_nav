@@ -13,8 +13,5 @@
                 "content.js"
             ]
         }
-    ],
-    "web_accessible_resources": [
-        "script.js"
     ]
 }

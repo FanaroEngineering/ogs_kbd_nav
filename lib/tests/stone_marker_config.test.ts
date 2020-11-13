@@ -1,4 +1,4 @@
-import { StoneMarkerData } from "../../src/components/stone_marker";
+import { StoneMarkerData } from "../src/components/stone_marker";
 
 test("The diameter of the config should be double the radius", () => {
   expect(new StoneMarkerData().diameter).toBe(16);

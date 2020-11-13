@@ -44,7 +44,6 @@ export default class Kbd {
         break;
       case "Enter":
         this.stoneMarkerUi?.click();
-        console.log("enter");
         break;
     }
   };

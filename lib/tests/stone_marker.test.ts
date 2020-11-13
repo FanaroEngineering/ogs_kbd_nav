@@ -1,4 +1,4 @@
-import StoneMarker from "../../src/components/stone_marker";
+import StoneMarker from "../src/components/stone_marker";
 
 test("The stone marker is initialized with (100, 100) as coordinates", () => {
   expect(new StoneMarker().x).toBe(83.5);
