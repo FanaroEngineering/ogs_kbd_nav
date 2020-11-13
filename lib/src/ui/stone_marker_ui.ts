@@ -18,10 +18,10 @@ export default class StoneMarkerUi {
   private canvasOn: boolean = false;
 
   toggleCanvas = (): void => {
-    if (this.canvasOn === false) {
+    if (!this.canvasOn) {
       this.configureStoneMarkerCanvas();
       this.appendStoneMarkerCanvas();
-    } else if (this.canvasOn === true) {
+    } else if (this.canvasOn) {
       this.removeStoneMarkerCanvas();
     }
     this.canvasOn = !this.canvasOn;

@@ -52,10 +52,10 @@ export default class Kbd {
   };
 
   private toggleCanvas = (): void => {
-    if (this.kbdEvt.ctrlKey === true) this.stoneMarkerUi?.toggleCanvas();
+    if (this.kbdEvt.ctrlKey) this.stoneMarkerUi?.toggleCanvas();
   };
 
   private toggleChatInput = (): void => {
-    if (this.kbdEvt.ctrlKey === true) this.chat.toggleChatInput();
+    if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
   };
 }
