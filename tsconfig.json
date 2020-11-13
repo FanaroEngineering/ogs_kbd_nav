@@ -13,5 +13,6 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
+    "suppressImplicitAnyIndexErrors": true
   }
 }

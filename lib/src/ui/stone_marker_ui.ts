@@ -94,9 +94,11 @@ export default class StoneMarkerUi {
   };
 
   click = (): void => {
-    const clickEvent = document.createEvent("MouseEvents");
+    const clickEvent: MouseEvent = document.createEvent("MouseEvent");
+    const topOffset: number = this.stoneMarkerCanvas.getBoundingClientRect()
+      .top;
     clickEvent.initMouseEvent(
-      "mousedown",
+      "click",
       true,
       true,
       window,
@@ -104,7 +106,7 @@ export default class StoneMarkerUi {
       0,
       0,
       this.stoneMarker.x,
-      this.stoneMarker.y,
+      this.stoneMarker.y + topOffset,
       false,
       false,
       false,
