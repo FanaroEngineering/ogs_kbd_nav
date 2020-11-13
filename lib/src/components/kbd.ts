@@ -27,6 +27,9 @@ export default class Kbd {
 
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
+      case "b":
+        this.toggleCanvas();
+        break;
       case "m":
         this.toggleChatInput();
         break;
@@ -48,7 +51,11 @@ export default class Kbd {
     }
   };
 
+  private toggleCanvas = (): void => {
+    if (this.kbdEvt.ctrlKey === true) this.stoneMarkerUi?.toggleCanvas();
+  };
+
   private toggleChatInput = (): void => {
-    if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
+    if (this.kbdEvt.ctrlKey === true) this.chat.toggleChatInput();
   };
 }
