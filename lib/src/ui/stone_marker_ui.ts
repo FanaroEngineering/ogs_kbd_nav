@@ -10,6 +10,7 @@ export enum Direction {
 export default class StoneMarkerUi {
   static readonly shadowCanvasQuery: string =
     "div.Goban > div > canvas#shadow-canvas";
+  private static readonly defaultCanvasSize: number = 504;
 
   private stoneMarker: StoneMarker = new StoneMarker();
   private stoneMarkerCanvas: HTMLCanvasElement = document.createElement(
@@ -21,14 +22,23 @@ export default class StoneMarkerUi {
     return this._canvasOn;
   }
 
+  private get stoneRatio(): number {
+    return this.stoneMarkerCanvas.width / StoneMarkerUi.defaultCanvasSize;
+  }
+
   toggleCanvas = (): void => {
     if (!this._canvasOn) {
       this.configureStoneMarkerCanvas();
       this.appendStoneMarkerCanvas();
+      this.configureStoneMarker();
     } else if (this._canvasOn) {
       this.removeStoneMarkerCanvas();
     }
     this._canvasOn = !this._canvasOn;
+  };
+
+  private configureStoneMarker = (): void => {
+    this.stoneMarker = StoneMarker.changeRatio(this.stoneRatio);
   };
 
   private removeStoneMarkerCanvas = (): void =>

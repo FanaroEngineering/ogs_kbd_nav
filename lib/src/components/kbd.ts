@@ -2,8 +2,8 @@ import Chat from "./chat";
 import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
 
 export default class Kbd {
-  private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
   private readonly chat: Chat = new Chat();
+  private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
   private stoneMarkerUi: StoneMarkerUi | null = null;
 
   constructor() {
