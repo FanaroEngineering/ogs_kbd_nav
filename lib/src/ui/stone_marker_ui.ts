@@ -27,9 +27,8 @@ export default class StoneMarkerUi {
     this.canvasOn = !this.canvasOn;
   };
 
-  private removeStoneMarkerCanvas = (): void => {
+  private removeStoneMarkerCanvas = (): void =>
     document.getElementById("stone-marker")?.remove();
-  };
 
   private configureStoneMarkerCanvas = (): void => {
     const shadowCanvas: HTMLCanvasElement = document.querySelector(
