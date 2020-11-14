@@ -1,53 +1,55 @@
 export default class StoneMarker {
-  constructor(readonly config: StoneMarkerData = new StoneMarkerData()) {}
+  constructor(
+    private readonly data: StoneMarkerData = new StoneMarkerData()
+  ) {}
 
   get radius(): number {
-    return this.config.radius;
+    return this.data.radius;
   }
 
   get x(): number {
-    return this.config.x;
+    return this.data.x;
   }
 
   get y(): number {
-    return this.config.y;
+    return this.data.y;
   }
 
   moveRight = (): StoneMarker =>
     new StoneMarker(
-      this.config.copyWithX(
-        this.config.x + this.config.diameter + this.config.dxdy
+      this.data.copyWithX(
+        this.data.x + this.data.diameter + this.data.dxdy
       )
     );
 
   moveDown = (): StoneMarker =>
     new StoneMarker(
-      this.config.copyWithY(
-        this.config.y + this.config.diameter + this.config.dxdy
+      this.data.copyWithY(
+        this.data.y + this.data.diameter + this.data.dxdy
       )
     );
 
   moveLeft = (): StoneMarker =>
     new StoneMarker(
-      this.config.copyWithX(
-        this.config.x - this.config.diameter - this.config.dxdy
+      this.data.copyWithX(
+        this.data.x - this.data.diameter - this.data.dxdy
       )
     );
 
   moveUp = (): StoneMarker =>
     new StoneMarker(
-      this.config.copyWithY(
-        this.config.y - this.config.diameter - this.config.dxdy
+      this.data.copyWithY(
+        this.data.y - this.data.diameter - this.data.dxdy
       )
     );
 }
 
 export class StoneMarkerData {
   constructor(
-    public readonly x: number = 83.5,
-    public readonly y: number = 131.5,
-    public readonly radius: number = 8,
-    public readonly dxdy: number = 8
+    readonly x: number = 83.5,
+    readonly y: number = 131.5,
+    readonly radius: number = 8,
+    readonly dxdy: number = 8
   ) {}
 
   get diameter(): number {
