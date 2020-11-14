@@ -40,6 +40,7 @@ export default class StoneMarkerUi {
     this.stoneMarkerCanvas.id = "stone-marker";
     this.stoneMarkerCanvas.style.zIndex = "21";
     this.stoneMarkerCanvas.style.position = "absolute";
+    this.stoneMarkerCanvas.style.borderBottom = "red solid";
     this.stoneMarkerCanvas.width = width;
     this.stoneMarkerCanvas.height = height;
   };
