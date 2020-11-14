@@ -1,6 +1,5 @@
 # Things that should not be tracked in general
 node_modules/
-.vscode/
 
 # TS-JS compilation unnecessary stuff
 dist/*
