@@ -15,16 +15,20 @@ export default class StoneMarkerUi {
   private stoneMarkerCanvas: HTMLCanvasElement = document.createElement(
     "canvas"
   ) as HTMLCanvasElement;
-  private canvasOn: boolean = false;
+  private _canvasOn: boolean = false;
+
+  get canvasOn(): boolean {
+    return this._canvasOn;
+  }
 
   toggleCanvas = (): void => {
-    if (!this.canvasOn) {
+    if (!this._canvasOn) {
       this.configureStoneMarkerCanvas();
       this.appendStoneMarkerCanvas();
-    } else if (this.canvasOn) {
+    } else if (this._canvasOn) {
       this.removeStoneMarkerCanvas();
     }
-    this.canvasOn = !this.canvasOn;
+    this._canvasOn = !this._canvasOn;
   };
 
   private removeStoneMarkerCanvas = (): void =>

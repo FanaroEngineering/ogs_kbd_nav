@@ -7,11 +7,12 @@ export default class Kbd {
   private stoneMarkerUi: StoneMarkerUi | null = null;
 
   constructor() {
-    window.onload = this.onload;
-    document.onkeydown = this.onkeydown;
+    window.onload = this.onLoad;
+    window.onresize = this.onResize;
+    document.onkeydown = this.onKeydown;
   }
 
-  private onload = (_: Event) => {
+  private onLoad = (_: Event) => {
     const checkExist: NodeJS.Timeout = setInterval(() => {
       if (document.querySelector(StoneMarkerUi.shadowCanvasQuery) !== null) {
         this.stoneMarkerUi = new StoneMarkerUi();
@@ -20,7 +21,13 @@ export default class Kbd {
     }, 100);
   };
 
-  private onkeydown = (evt: KeyboardEvent) => {
+  private onResize = (_: UIEvent) => {
+    if (this.stoneMarkerUi?.canvasOn) this.stoneMarkerUi?.toggleCanvas();
+    this.stoneMarkerUi = new StoneMarkerUi();
+    this.stoneMarkerUi?.toggleCanvas();
+  };
+
+  private onKeydown = (evt: KeyboardEvent) => {
     this.kbdEvt = evt;
     this.keySwitch();
   };
