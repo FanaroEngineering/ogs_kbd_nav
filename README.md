@@ -12,10 +12,11 @@
 - [2. Table of Shortcuts](#2-table-of-shortcuts)
 - [3. Other Resources](#3-other-resources)
 - [4. For the Developer](#4-for-the-developer)
-    - [4.1. Compiling with TypeScript](#41-compiling-with-typescript)
-    - [4.2. Compiling with Webpack](#42-compiling-with-webpack)
-    - [4.3. Running Tests](#43-running-tests)
-    - [4.4. The Complete Development Setup](#44-the-complete-development-setup)
+    - [4.1. How does this work?](#41-how-does-this-work)
+    - [4.2. Compiling with TypeScript](#42-compiling-with-typescript)
+    - [4.3. Compiling with Webpack](#43-compiling-with-webpack)
+    - [4.4. Running Tests](#44-running-tests)
+    - [4.5. The Complete Development Setup](#45-the-complete-development-setup)
 
 <!-- /TOC -->
 
@@ -52,7 +53,20 @@ Two other examples of keyboard navigation browser extensions:
 
 ## 4. For the Developer
 
-### 4.1. Compiling with TypeScript
+### 4.1. How does this work?
+
+I'm basically using the [`StoneMarkerUi`][stonemarkerui] class to draw a canvas on top of the existing OGS ones with the movable marker. It would be tough to make it work with the same existing canvas because erasing stuff while OGS tries to draw its own doesn't work very well in HTML.
+
+A possibly easier way of doing all this would be to use the global variable `global_goban`, which OGS makes available on its pages &mdash; I didn't know of its existence until [Akita Anoek][anoek], the main developer of OGS, mentioned it to me. It is also kind of tricky to use global variable in browser extension contexts because most of the standardized files live in isolated worlds, but a solution to this problem can be found [here][so_global_variable].
+
+Lastly, to draw the markers with size and positioning proportional to OGS', I essentially used a brute force approach. I've manually and visually worked out the size and positioning through approximations while with a fixed sized goban on my screen. And then I simply created a `ratio` property based on that goban size, which would be used to multiply the default sizes and positions I had originally worked out. Surprisingly, this approach was enough to make things work. 
+
+
+[anoek]: https://github.com/anoek
+[so_global_variable]: https://stackoverflow.com/a/64823100/4756173
+[stonemarkerui]: lib/src/ui/stone_marker_ui.ts
+
+### 4.2. Compiling with TypeScript
 
 The JS code won't be version controlled (`dist`), the programmer should be able to easily recreate it by compiling it from the TS code (`src`).
 
@@ -62,7 +76,7 @@ Simply use this to compile the TS code to JS:
 tsc -w
 ```
 
-### 4.2. Compiling with Webpack
+### 4.3. Compiling with Webpack
 
 After installing the `webpack-cli` package, run:
 
@@ -72,7 +86,7 @@ npx webpack -w
 
 to enable compilation bundling and minifying on watch mode.
 
-### 4.3. Running Tests
+### 4.4. Running Tests
 
 If you use `tsc -w`, you can either use `npm t` to run tests with [Jest][jest] or use the following to watch the tests as the code changes with `tsc -w`:
 
@@ -83,7 +97,7 @@ npm t -- --watch
 
 [jest]: https://jestjs.io/en/
 
-### 4.4. The Complete Development Setup
+### 4.5. The Complete Development Setup
 
 The current setup will compile TS code to JS into the `dist/dev` folder for testing purposes (TDD), while compiling production code into the `dist/prod` folder for (manual) testing inside the browser.
 
