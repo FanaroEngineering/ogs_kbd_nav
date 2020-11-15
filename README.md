@@ -2,6 +2,7 @@
 
 [![Downloads][github_downloads]][github_releases]
 [![TS][github_ci_badge]][github_actions]
+[![Gitter][gitter_svg]][gitter_badge]
 [![Buy Me A Coffee][buy_me_a_coffee_badge]][buy_me_a_coffee_donation]
 
 
@@ -11,6 +12,8 @@
 [github_ci_badge]: https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg
 [github_downloads]: https://img.shields.io/github/downloads/FanaroEngineering/ogs_kbd_nav/total.svg
 [github_releases]: https://github.com/FanaroEngineering/ogs_kbd_nav/releases
+[gitter_svg]: https://badges.gitter.im/OGS-Kbd-Nav/community.svg
+[gitter_badge]: https://gitter.im/OGS-Kbd-Nav/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 <!-- TOC depthFrom:2 -->
 
