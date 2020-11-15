@@ -6,6 +6,8 @@
 [github_actions]: https://github.com/FanaroEngineering/ogs_kbd_nav/actions
 [github_ci_badge]: https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg
 
+> **This extension currently only works if you have the coordinates turned on.**
+
 <!-- TOC depthFrom:2 -->
 
 - [1. What is this?](#1-what-is-this)
