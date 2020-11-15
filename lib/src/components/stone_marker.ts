@@ -15,25 +15,65 @@ export default class StoneMarker {
     return this.data.y;
   }
 
+  private get notRightEdge(): boolean {
+    if (this.data.gobanX < 19) return true;
+    else return false;
+  }
+
   moveRight = (): StoneMarker =>
-    new StoneMarker(
-      this.data.copyWithX(this.data.x + this.data.diameter + this.data.dxdy)
-    );
+    this.notRightEdge
+      ? new StoneMarker(
+          this.data.copyWithX(
+            this.data.x + this.data.diameter + this.data.dxdy,
+            this.data.gobanX + 1
+          )
+        )
+      : this;
+
+  private get notLowerEdge(): boolean {
+    if (this.data.gobanY > 1) return true;
+    else return false;
+  }
 
   moveDown = (): StoneMarker =>
-    new StoneMarker(
-      this.data.copyWithY(this.data.y + this.data.diameter + this.data.dxdy)
-    );
+    this.notLowerEdge
+      ? new StoneMarker(
+          this.data.copyWithY(
+            this.data.y + this.data.diameter + this.data.dxdy,
+            this.data.gobanY - 1
+          )
+        )
+      : this;
+
+  private get notLeftEdge(): boolean {
+    if (this.data.gobanX > 1) return true;
+    else return false;
+  }
 
   moveLeft = (): StoneMarker =>
-    new StoneMarker(
-      this.data.copyWithX(this.data.x - this.data.diameter - this.data.dxdy)
-    );
+    this.notLeftEdge
+      ? new StoneMarker(
+          this.data.copyWithX(
+            this.data.x - this.data.diameter - this.data.dxdy,
+            this.data.gobanX - 1
+          )
+        )
+      : this;
+
+  private get notTopEdge(): boolean {
+    if (this.data.gobanY < 19) return true;
+    else return false;
+  }
 
   moveUp = (): StoneMarker =>
-    new StoneMarker(
-      this.data.copyWithY(this.data.y - this.data.diameter - this.data.dxdy)
-    );
+    this.notTopEdge
+      ? new StoneMarker(
+          this.data.copyWithY(
+            this.data.y - this.data.diameter - this.data.dxdy,
+            this.data.gobanY + 1
+          )
+        )
+      : this;
 
   static changeRatio = (ratio: number): StoneMarker =>
     new StoneMarker(StoneMarkerData.fromRatio(ratio));
@@ -57,16 +97,32 @@ export class StoneMarkerData {
     readonly radius: number = StoneMarkerData.defaultRadiusDxDy,
     readonly dxdy: number = StoneMarkerData.defaultRadiusDxDy,
     readonly x: number = StoneMarkerData.defaultXY,
-    readonly y: number = StoneMarkerData.defaultXY
+    readonly y: number = StoneMarkerData.defaultXY,
+    readonly gobanX: number = 1,
+    readonly gobanY: number = 19
   ) {}
 
   get diameter(): number {
     return 2 * this.radius;
   }
 
-  copyWithX = (newX: number) =>
-    new StoneMarkerData(this.radius, this.dxdy, newX, this.y);
+  copyWithX = (newX: number, newGobanX: number) =>
+    new StoneMarkerData(
+      this.radius,
+      this.dxdy,
+      newX,
+      this.y,
+      newGobanX,
+      this.gobanY
+    );
 
-  copyWithY = (newY: number) =>
-    new StoneMarkerData(this.radius, this.dxdy, this.x, newY);
+  copyWithY = (newY: number, newGobanY: number) =>
+    new StoneMarkerData(
+      this.radius,
+      this.dxdy,
+      this.x,
+      newY,
+      this.gobanX,
+      newGobanY
+    );
 }

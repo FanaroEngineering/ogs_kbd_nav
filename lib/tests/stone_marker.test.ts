@@ -1,12 +1,12 @@
 import StoneMarker from "../src/components/stone_marker";
 
-test("The stone marker is initialized with (100, 100) as coordinates", () => {
+test("The stone marker is initialized with (35.75, 35.75) as coordinates", () => {
   expect(new StoneMarker().x).toBe(35.75);
   expect(new StoneMarker().y).toBe(35.75);
   expect(new StoneMarker().radius).toBe(8);
 });
 
-test("Moving to the right changes the initial coordinates to be (120, 100)", () => {
+test("Moving to the right changes the initial coordinates to be (59.75, 35.75)", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
   const movedStoneMarker: StoneMarker = stoneMarker.moveRight();
 
@@ -16,7 +16,16 @@ test("Moving to the right changes the initial coordinates to be (120, 100)", () 
   expect(movedStoneMarker.y).toBe(35.75);
 });
 
-test("Moving downwards changes the initial coordinates to be (100, 120)", () => {
+test("Testing the right edge boundary", () => {
+  const stoneMarker: StoneMarker = new StoneMarker();
+  let movedStoneMarker: StoneMarker = stoneMarker;
+  for (let i = 0; i < 25; i++) movedStoneMarker = movedStoneMarker.moveRight();
+
+  expect(movedStoneMarker.x).toBe(467.75);
+  expect(movedStoneMarker.y).toBe(35.75);
+});
+
+test("Moving downwards changes the initial coordinates to be (35.75, 59.75)", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
   const movedStoneMarker: StoneMarker = stoneMarker.moveDown();
 
@@ -26,24 +35,53 @@ test("Moving downwards changes the initial coordinates to be (100, 120)", () => 
   expect(movedStoneMarker.y).toBe(59.75);
 });
 
-test("Moving to the left changes the initial coordinates to be (80, 100)", () => {
+test("Testing the lower edge boundary", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
-  const movedStoneMarker: StoneMarker = stoneMarker.moveLeft();
+  let movedStoneMarker: StoneMarker = stoneMarker;
+  for (let i = 0; i < 25; i++) movedStoneMarker = movedStoneMarker.moveDown();
 
-  expect(stoneMarker.x).toBe(35.75);
-  expect(stoneMarker.y).toBe(35.75);
-  expect(movedStoneMarker.x).toBe(11.75);
-  expect(movedStoneMarker.y).toBe(35.75);
+  expect(movedStoneMarker.x).toBe(35.75);
+  expect(movedStoneMarker.y).toBe(467.75);
 });
 
-test("Moving upwards changes the initial coordinates to be (100, 80)", () => {
+test("Moving to the right and left changes the initial coordinates to be (35.75, 35.75)", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
-  const movedStoneMarker: StoneMarker = stoneMarker.moveUp();
+  const interStoneMarker: StoneMarker = stoneMarker.moveRight();
+  const movedStoneMarker: StoneMarker = interStoneMarker.moveLeft();
 
   expect(stoneMarker.x).toBe(35.75);
   expect(stoneMarker.y).toBe(35.75);
   expect(movedStoneMarker.x).toBe(35.75);
-  expect(movedStoneMarker.y).toBe(11.75);
+  expect(movedStoneMarker.y).toBe(35.75);
+});
+
+test("Testing the left edge boundary", () => {
+  const stoneMarker: StoneMarker = new StoneMarker();
+  let movedStoneMarker: StoneMarker = stoneMarker;
+  for (let i = 0; i < 25; i++) movedStoneMarker = movedStoneMarker.moveLeft();
+
+  expect(movedStoneMarker.x).toBe(35.75);
+  expect(movedStoneMarker.y).toBe(35.75);
+});
+
+test("Moving downwards and upwards changes the initial coordinates to be (35.75, 35.75)", () => {
+  const stoneMarker: StoneMarker = new StoneMarker();
+  const interStoneMarker: StoneMarker = stoneMarker.moveDown();
+  const movedStoneMarker: StoneMarker = interStoneMarker.moveUp();
+
+  expect(stoneMarker.x).toBe(35.75);
+  expect(stoneMarker.y).toBe(35.75);
+  expect(movedStoneMarker.x).toBe(35.75);
+  expect(movedStoneMarker.y).toBe(35.75);
+});
+
+test("Testing the top edge boundary", () => {
+  const stoneMarker: StoneMarker = new StoneMarker();
+  let movedStoneMarker: StoneMarker = stoneMarker;
+  for (let i = 0; i < 25; i++) movedStoneMarker = movedStoneMarker.moveUp();
+
+  expect(movedStoneMarker.x).toBe(35.75);
+  expect(movedStoneMarker.y).toBe(35.75);
 });
 
 test("Changing the ratio changes the proportions and position of the stone marker", () => {

@@ -6,24 +6,30 @@ test("The diameter of the config should be double the radius", () => {
 
 test("copyWithX only changes X", () => {
   const copiedStoneMarkerConfig: StoneMarkerData = StoneMarkerData.default().copyWithX(
-    1000
+    1000,
+    2
   );
 
   expect(copiedStoneMarkerConfig.x).toBe(1000);
   expect(copiedStoneMarkerConfig.y).toBe(35.75);
   expect(copiedStoneMarkerConfig.radius).toBe(8);
   expect(copiedStoneMarkerConfig.dxdy).toBe(8);
+  expect(copiedStoneMarkerConfig.gobanX).toBe(2);
+  expect(copiedStoneMarkerConfig.gobanY).toBe(19);
 });
 
 test("copyWithY only changes Y", () => {
   const copiedStoneMarkerConfig: StoneMarkerData = StoneMarkerData.default().copyWithY(
-    1000
+    1000,
+    2
   );
 
   expect(copiedStoneMarkerConfig.x).toBe(35.75);
   expect(copiedStoneMarkerConfig.y).toBe(1000);
   expect(copiedStoneMarkerConfig.radius).toBe(8);
   expect(copiedStoneMarkerConfig.dxdy).toBe(8);
+  expect(copiedStoneMarkerConfig.gobanX).toBe(1);
+  expect(copiedStoneMarkerConfig.gobanY).toBe(2);
 });
 
 test("fromRatio gives back new stone marker data that only multiplies the default", () => {
@@ -33,4 +39,6 @@ test("fromRatio gives back new stone marker data that only multiplies the defaul
   expect(doubledStoneMarkerData.y).toBe(2 * 35.75);
   expect(doubledStoneMarkerData.radius).toBe(2 * 8);
   expect(doubledStoneMarkerData.dxdy).toBe(2 * 8);
+  expect(doubledStoneMarkerData.gobanX).toBe(1);
+  expect(doubledStoneMarkerData.gobanY).toBe(19);
 });
