@@ -1,12 +1,16 @@
 # OGS Kbd Nav
 
+[![Downloads][github_downloads]][github_releases]
 [![TS][github_ci_badge]][github_actions]
+[![Buy Me A Coffee][buy_me_a_coffee_badge]][buy_me_a_coffee_donation]
 
 
+[buy_me_a_coffee_badge]: assets/buy_me_a_coffee_shield.svg
+[buy_me_a_coffee_donation]: https://www.buymeacoffee.com/psygo
 [github_actions]: https://github.com/FanaroEngineering/ogs_kbd_nav/actions
 [github_ci_badge]: https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg
-
-> **This extension currently only works if you have *all* the coordinates turned on.**
+[github_downloads]: https://img.shields.io/github/downloads/FanaroEngineering/ogs_kbd_nav/total.svg
+[github_releases]: https://github.com/FanaroEngineering/ogs_kbd_nav/releases
 
 <!-- TOC depthFrom:2 -->
 
