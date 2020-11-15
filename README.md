@@ -13,6 +13,10 @@
 - [1. What is this?](#1-what-is-this)
 - [2. Table of Shortcuts](#2-table-of-shortcuts)
 - [3. How to Install This Browser Extension](#3-how-to-install-this-browser-extension)
+    - [3.1. From a Github Release](#31-from-a-github-release)
+    - [3.2. Google Chrome](#32-google-chrome)
+    - [3.3. Microsoft Edge](#33-microsoft-edge)
+    - [3.4. Firefox](#34-firefox)
 - [4. Other Resources](#4-other-resources)
 - [5. For the Developer](#5-for-the-developer)
     - [5.1. How does this work?](#51-how-does-this-work)
@@ -54,6 +58,21 @@ You can either install it through the [Github releases][releases] or through the
 
 
 [releases]: https://github.com/FanaroEngineering/ogs_kbd_nav/releases
+
+### 3.1. From a Github Release
+
+1. Go to the [releases][releases] page.
+1. Download the latest release's ZIP folder.
+1. Extract the content somewhere.
+1. Go to your browser's extension page.
+1. Activate <kbd>Developer Mode</kbd>.
+1. Load the unpacked extension.
+
+### 3.2. Google Chrome
+
+### 3.3. Microsoft Edge
+
+### 3.4. Firefox
 
 ## 4. Other Resources
 
