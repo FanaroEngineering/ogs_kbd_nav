@@ -10,7 +10,7 @@ test("copyWithX only changes X", () => {
   );
 
   expect(copiedStoneMarkerConfig.x).toBe(1000);
-  expect(copiedStoneMarkerConfig.y).toBe(131.75);
+  expect(copiedStoneMarkerConfig.y).toBe(35.75);
   expect(copiedStoneMarkerConfig.radius).toBe(8);
   expect(copiedStoneMarkerConfig.dxdy).toBe(8);
 });
@@ -20,7 +20,7 @@ test("copyWithY only changes Y", () => {
     1000
   );
 
-  expect(copiedStoneMarkerConfig.x).toBe(83.75);
+  expect(copiedStoneMarkerConfig.x).toBe(35.75);
   expect(copiedStoneMarkerConfig.y).toBe(1000);
   expect(copiedStoneMarkerConfig.radius).toBe(8);
   expect(copiedStoneMarkerConfig.dxdy).toBe(8);
@@ -29,8 +29,8 @@ test("copyWithY only changes Y", () => {
 test("fromRatio gives back new stone marker data that only multiplies the default", () => {
   const doubledStoneMarkerData: StoneMarkerData = StoneMarkerData.fromRatio(2);
 
-  expect(doubledStoneMarkerData.x).toBe(2 * 83.75);
-  expect(doubledStoneMarkerData.y).toBe(2 * 131.75);
+  expect(doubledStoneMarkerData.x).toBe(2 * 35.75);
+  expect(doubledStoneMarkerData.y).toBe(2 * 35.75);
   expect(doubledStoneMarkerData.radius).toBe(2 * 8);
   expect(doubledStoneMarkerData.dxdy).toBe(2 * 8);
 });

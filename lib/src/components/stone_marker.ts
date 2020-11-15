@@ -40,25 +40,24 @@ export default class StoneMarker {
 }
 
 export class StoneMarkerData {
-  private static readonly defaultRadius = 8;
-  private static readonly defaultX = 83.75;
-  private static readonly defaultY = 131.75;
+  private static readonly defaultRadiusDxDy = 8;
+  private static readonly defaultXY = 35.75;
 
   static default = (): StoneMarkerData => new StoneMarkerData();
 
   static fromRatio = (ratio: number): StoneMarkerData =>
     new StoneMarkerData(
-      ratio * StoneMarkerData.defaultRadius,
-      ratio * StoneMarkerData.defaultRadius,
-      ratio * StoneMarkerData.defaultX,
-      ratio * StoneMarkerData.defaultY
+      ratio * StoneMarkerData.defaultRadiusDxDy,
+      ratio * StoneMarkerData.defaultRadiusDxDy,
+      ratio * StoneMarkerData.defaultXY,
+      ratio * StoneMarkerData.defaultXY
     );
 
   private constructor(
-    readonly radius: number = StoneMarkerData.defaultRadius,
-    readonly dxdy: number = StoneMarkerData.defaultRadius,
-    readonly x: number = StoneMarkerData.defaultX,
-    readonly y: number = StoneMarkerData.defaultY
+    readonly radius: number = StoneMarkerData.defaultRadiusDxDy,
+    readonly dxdy: number = StoneMarkerData.defaultRadiusDxDy,
+    readonly x: number = StoneMarkerData.defaultXY,
+    readonly y: number = StoneMarkerData.defaultXY
   ) {}
 
   get diameter(): number {

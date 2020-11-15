@@ -35,6 +35,7 @@ export default class StoneMarkerUi {
       this.removeStoneMarkerCanvas();
     }
     this._canvasOn = !this._canvasOn;
+    this.draw();
   };
 
   private configureStoneMarker = (): void => {
