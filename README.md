@@ -6,19 +6,20 @@
 [github_actions]: https://github.com/FanaroEngineering/ogs_kbd_nav/actions
 [github_ci_badge]: https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg
 
-> **This extension currently only works if you have the coordinates turned on.**
+> **This extension currently only works if you have *all* the coordinates turned on.**
 
 <!-- TOC depthFrom:2 -->
 
 - [1. What is this?](#1-what-is-this)
 - [2. Table of Shortcuts](#2-table-of-shortcuts)
-- [3. Other Resources](#3-other-resources)
-- [4. For the Developer](#4-for-the-developer)
-    - [4.1. How does this work?](#41-how-does-this-work)
-    - [4.2. Compiling with TypeScript](#42-compiling-with-typescript)
-    - [4.3. Compiling with Webpack](#43-compiling-with-webpack)
-    - [4.4. Running Tests](#44-running-tests)
-    - [4.5. The Complete Development Setup](#45-the-complete-development-setup)
+- [3. How to Install This Browser Extension](#3-how-to-install-this-browser-extension)
+- [4. Other Resources](#4-other-resources)
+- [5. For the Developer](#5-for-the-developer)
+    - [5.1. How does this work?](#51-how-does-this-work)
+    - [5.2. Compiling with TypeScript](#52-compiling-with-typescript)
+    - [5.3. Compiling with Webpack](#53-compiling-with-webpack)
+    - [5.4. Running Tests](#54-running-tests)
+    - [5.5. The Complete Development Setup](#55-the-complete-development-setup)
 
 <!-- /TOC -->
 
@@ -32,14 +33,29 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 
 ## 2. Table of Shortcuts
 
-| Shortcut                                                                | Action                                          |
-| ----------------------------------------------------------------------- | ----------------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>m</kbd>                                          | Toggle the chat input box on a game page        |
-| <kbd>Ctrl</kbd> + <kbd>b</kbd>                                          | Toggle the canvas overlay with the stone marker |
-| <kbd>&uarr;</kbd> <kbd>&rarr;</kbd> <kbd>&darr;</kbd> <kbd>&larr;</kbd> | Move the stone marker around the overlay canvas |
-| <kbd>Enter</kbd>                                                        | Click on the stone marker's location            |
+> **This extension currently only works if you have *all* the coordinates turned on.**
 
-## 3. Other Resources
+| Shortcut                          | Action                                          |
+| --------------------------------- | ----------------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>m</kbd>    | Toggle the chat input box on a game page        |
+| <kbd>Ctrl</kbd> + <kbd>b</kbd>    | Toggle the canvas overlay with the stone marker |
+| <kbd>w</kbd> or <kbd>&uarr;</kbd> | Move the stone marker up                        |
+| <kbd>a</kbd> or <kbd>&larr;</kbd> | Move the stone marker left<sup>1</sup>          |
+| <kbd>s</kbd> or <kbd>&darr;</kbd> | Move the stone marker down                      |
+| <kbd>d</kbd> or <kbd>&rarr;</kbd> | Move the stone marker right                     |
+| <kbd>Enter</kbd> or <kbd>j</kbd>  | Click on the stone marker's location            |
+| <kbd>Ctrl</kbd> + <kbd>p</kbd>    | Pass                                            |
+
+<sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub>
+
+## 3. How to Install This Browser Extension
+
+You can either install it through the [Github releases][releases] or through the &mdash; future &mdash; published extensions on Google Chrome's, Microsoft Edge's and Firefox's browser extension stores.
+
+
+[releases]: https://github.com/FanaroEngineering/ogs_kbd_nav/releases
+
+## 4. Other Resources
 
 Two other examples of keyboard navigation browser extensions:
 
@@ -53,9 +69,9 @@ Two other examples of keyboard navigation browser extensions:
 [web_search_navigator]: https://github.com/infokiller/web-search-navigator
 [youtube_kbd_nav]: https://github.com/FanaroEngineering/youtube_kbd_nav
 
-## 4. For the Developer
+## 5. For the Developer
 
-### 4.1. How does this work?
+### 5.1. How does this work?
 
 I'm basically using the [`StoneMarkerUi`][stonemarkerui] class to draw a canvas on top of the existing OGS ones with the movable marker. It would be tough to make it work with the same existing canvas because erasing stuff while OGS tries to draw its own doesn't work very well in HTML.
 
@@ -68,7 +84,7 @@ Lastly, to draw the markers with size and positioning proportional to OGS', I es
 [so_global_variable]: https://stackoverflow.com/a/64823100/4756173
 [stonemarkerui]: lib/src/ui/stone_marker_ui.ts
 
-### 4.2. Compiling with TypeScript
+### 5.2. Compiling with TypeScript
 
 The JS code won't be version controlled (`dist`), the programmer should be able to easily recreate it by compiling it from the TS code (`src`).
 
@@ -78,7 +94,7 @@ Simply use this to compile the TS code to JS:
 tsc -w
 ```
 
-### 4.3. Compiling with Webpack
+### 5.3. Compiling with Webpack
 
 After installing the `webpack-cli` package, run:
 
@@ -88,7 +104,7 @@ npx webpack -w
 
 to enable compilation bundling and minifying on watch mode.
 
-### 4.4. Running Tests
+### 5.4. Running Tests
 
 If you use `tsc -w`, you can either use `npm t` to run tests with [Jest][jest] or use the following to watch the tests as the code changes with `tsc -w`:
 
@@ -99,7 +115,7 @@ npm t -- --watch
 
 [jest]: https://jestjs.io/en/
 
-### 4.5. The Complete Development Setup
+### 5.5. The Complete Development Setup
 
 The current setup will compile TS code to JS into the `dist/dev` folder for testing purposes (TDD), while compiling production code into the `dist/prod` folder for (manual) testing inside the browser.
 

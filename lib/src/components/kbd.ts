@@ -34,6 +34,18 @@ export default class Kbd {
     this.keySwitch();
   };
 
+  private toggleCanvas = (): void => {
+    if (this.kbdEvt.ctrlKey) this.stoneMarkerUi?.toggleCanvas();
+  };
+
+  private toggleChatInput = (): void => {
+    if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
+  };
+
+  private pass = (): void => {
+    if (this.kbdEvt.ctrlKey) this.passButton.click();
+  };
+
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
       case "b":
@@ -42,31 +54,57 @@ export default class Kbd {
       case "m":
         this.toggleChatInput();
         break;
+      case "p":
+        this.pass();
+        break;
       case "d":
-        this.stoneMarkerUi?.move(Direction.right);
+        this.moveRight();
+        break;
+      case "ArrowRight":
+        this.moveRight();
         break;
       case "s":
-        this.stoneMarkerUi?.move(Direction.down);
+        this.moveDown();
+        break;
+      case "ArrowDown":
+        this.moveDown();
         break;
       case "a":
-        this.stoneMarkerUi?.move(Direction.left);
+        this.moveLeft();
+        break;
+      case "ArrowLeft":
+        this.moveLeft();
         break;
       case "w":
-        this.stoneMarkerUi?.move(Direction.up);
+        this.moveUp();
+        break;
+      case "ArrowUp":
+        this.moveUp();
         break;
       case "Enter":
-        this.stoneMarkerUi?.click();
+        this.play();
         break;
-      case "p":
-        this.passButton.click();
+      case "j":
+        this.play();
+        break;
     }
   };
 
-  private toggleCanvas = (): void => {
-    if (this.kbdEvt.ctrlKey) this.stoneMarkerUi?.toggleCanvas();
+  private moveRight = (): void => this.stoneMarkerUi?.move(Direction.right);
+
+  private moveDown = (): void => this.stoneMarkerUi?.move(Direction.down);
+
+  private moveLeft = (): void => {
+    const backToGameButtonQuery: string =
+      "div.analyze-mode-buttons > span > button";
+    const backToGameButton: HTMLButtonElement = document.querySelector(
+      backToGameButtonQuery
+    ) as HTMLButtonElement;
+    backToGameButton?.click();
+    this.stoneMarkerUi?.move(Direction.left);
   };
 
-  private toggleChatInput = (): void => {
-    if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
-  };
+  private moveUp = (): void => this.stoneMarkerUi?.move(Direction.up);
+
+  private play = (): void => this.stoneMarkerUi?.click();
 }
