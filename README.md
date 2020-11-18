@@ -56,6 +56,7 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 | <kbd>d</kbd> or <kbd>&rarr;</kbd> | Move the stone marker right                     |
 | <kbd>Enter</kbd> or <kbd>f</kbd>  | Click on the stone marker's location            |
 | <kbd>Ctrl</kbd> + <kbd>p</kbd>    | Pass                                            |
+| <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                              |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub>
 

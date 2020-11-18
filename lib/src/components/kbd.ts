@@ -1,10 +1,12 @@
+import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
+import AiReview from "./ai_review";
 import Chat from "./chat";
 import PassButton from "./pass";
-import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
 
 export default class Kbd {
   private readonly chat: Chat = new Chat();
   private readonly passButton: PassButton = new PassButton();
+  private readonly aiReview: AiReview = new AiReview();
   private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
   private stoneMarkerUi: StoneMarkerUi | null = null;
 
@@ -46,6 +48,10 @@ export default class Kbd {
     if (this.kbdEvt.ctrlKey) this.passButton.click();
   };
 
+  private toggleAiReview = (): void => {
+    if (this.kbdEvt.ctrlKey) this.aiReview.toggle();
+  };
+
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
       case "b":
@@ -56,6 +62,9 @@ export default class Kbd {
         break;
       case "p":
         this.pass();
+        break;
+      case ";":
+        this.toggleAiReview();
         break;
       case "d":
         this.moveRight();
