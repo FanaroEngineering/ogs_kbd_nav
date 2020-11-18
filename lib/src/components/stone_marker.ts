@@ -15,6 +15,10 @@ export default class StoneMarker {
     return this.data.y;
   }
 
+  private get step(): number {
+    return this.data.diameter + this.data.dxdy;
+  }
+
   private get notRightEdge(): boolean {
     if (this.data.gobanX < 19) return true;
     else return false;
@@ -23,10 +27,7 @@ export default class StoneMarker {
   moveRight = (): StoneMarker =>
     this.notRightEdge
       ? new StoneMarker(
-          this.data.copyWithX(
-            this.data.x + this.data.diameter + this.data.dxdy,
-            this.data.gobanX + 1
-          )
+          this.data.copyWithX(this.x + this.step, this.data.gobanX + 1)
         )
       : this;
 
@@ -38,10 +39,7 @@ export default class StoneMarker {
   moveDown = (): StoneMarker =>
     this.notLowerEdge
       ? new StoneMarker(
-          this.data.copyWithY(
-            this.data.y + this.data.diameter + this.data.dxdy,
-            this.data.gobanY - 1
-          )
+          this.data.copyWithY(this.y + this.step, this.data.gobanY - 1)
         )
       : this;
 
@@ -53,10 +51,7 @@ export default class StoneMarker {
   moveLeft = (): StoneMarker =>
     this.notLeftEdge
       ? new StoneMarker(
-          this.data.copyWithX(
-            this.data.x - this.data.diameter - this.data.dxdy,
-            this.data.gobanX - 1
-          )
+          this.data.copyWithX(this.x - this.step, this.data.gobanX - 1)
         )
       : this;
 
@@ -68,10 +63,7 @@ export default class StoneMarker {
   moveUp = (): StoneMarker =>
     this.notTopEdge
       ? new StoneMarker(
-          this.data.copyWithY(
-            this.data.y - this.data.diameter - this.data.dxdy,
-            this.data.gobanY + 1
-          )
+          this.data.copyWithY(this.y - this.step, this.data.gobanY + 1)
         )
       : this;
 
