@@ -1,8 +1,10 @@
 export default class Chat {
+  private static readonly chatInputQuery: string =
+    "div.chat-container > div > input.main";
+
   toggleChatInput = (): void => {
-    const chatInputQuery: string = "div.chat-container > div > input.main";
     const chatInput: HTMLInputElement = document.querySelector(
-      chatInputQuery
+      Chat.chatInputQuery
     ) as HTMLInputElement;
 
     document.activeElement == chatInput
