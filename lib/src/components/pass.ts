@@ -5,6 +5,6 @@ export default class PassButton {
     const passButton: HTMLButtonElement = document.querySelector(
       PassButton.passButtonQuery
     ) as HTMLButtonElement;
-    passButton.click();
+    passButton?.click();
   };
 }

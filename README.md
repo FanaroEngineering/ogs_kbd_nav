@@ -54,7 +54,7 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 | <kbd>a</kbd> or <kbd>&larr;</kbd> | Move the stone marker left<sup>1</sup>          |
 | <kbd>s</kbd> or <kbd>&darr;</kbd> | Move the stone marker down                      |
 | <kbd>d</kbd> or <kbd>&rarr;</kbd> | Move the stone marker right                     |
-| <kbd>Enter</kbd> or <kbd>j</kbd>  | Click on the stone marker's location            |
+| <kbd>Enter</kbd> or <kbd>f</kbd>  | Click on the stone marker's location            |
 | <kbd>Ctrl</kbd> + <kbd>p</kbd>    | Pass                                            |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub>

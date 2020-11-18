@@ -84,7 +84,7 @@ export default class Kbd {
       case "Enter":
         this.play();
         break;
-      case "j":
+      case "f":
         this.play();
         break;
     }
