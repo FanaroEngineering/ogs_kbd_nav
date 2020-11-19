@@ -1,7 +1,12 @@
 export default class CoordInputUi {
+  private _coordinates: string = "";
   private coordInput: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
+
+  get coordinates(): string {
+    return this._coordinates;
+  }
 
   constructor() {
     const gobanDiv: HTMLDivElement = document.querySelector(
@@ -46,6 +51,7 @@ export default class CoordInputUi {
       );
     } else {
       this.coordInput.setCustomValidity("");
+      this._coordinates = this.coordInput.value;
     }
   };
 }

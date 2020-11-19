@@ -1,4 +1,5 @@
 import StoneMarker from "../components/stone_marker";
+import CoordInputUi from "./coord_input_ui";
 
 export enum Direction {
   right,
@@ -11,6 +12,8 @@ export default class StoneMarkerUi {
   static readonly shadowCanvasQuery: string =
     "div.Goban > div > canvas#shadow-canvas";
   private static readonly defaultCanvasSize: number = 504;
+
+  readonly coordInputUi: CoordInputUi = new CoordInputUi();
 
   private stoneMarker: StoneMarker = new StoneMarker();
   private stoneMarkerCanvas: HTMLCanvasElement = document.createElement(
@@ -122,7 +125,8 @@ export default class StoneMarkerUi {
     const clickEvent: MouseEvent = document.createEvent("MouseEvent");
     const topOffset: number = this.stoneMarkerCanvas.getBoundingClientRect()
       .top;
-    const leftOffset: number = this.stoneMarkerCanvas.getBoundingClientRect().left;
+    const leftOffset: number = this.stoneMarkerCanvas.getBoundingClientRect()
+      .left;
     clickEvent.initMouseEvent(
       "click",
       true,
