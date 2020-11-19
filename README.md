@@ -55,7 +55,7 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 | <kbd>s</kbd> or <kbd>&darr;</kbd> | Move the stone marker down                      |
 | <kbd>d</kbd> or <kbd>&rarr;</kbd> | Move the stone marker right                     |
 | <kbd>Enter</kbd> or <kbd>f</kbd>  | Click on the stone marker's location            |
-| <kbd>Ctrl</kbd> + <kbd>p</kbd>    | Pass                                            |
+| <kbd>Shift</kbd> + <kbd>p</kbd>   | Pass                                            |
 | <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                              |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub>
@@ -102,7 +102,7 @@ Two other examples of keyboard navigation browser extensions:
 
 I'm basically using the [`StoneMarkerUi`][stonemarkerui] class to draw a canvas on top of the existing OGS ones with the movable marker. It would be tough to make it work with the same existing canvas because erasing stuff while OGS tries to draw its own doesn't work very well in HTML.
 
-A possibly easier way of doing all this would be to use the global variable `global_goban`, which OGS makes available on its pages &mdash; I didn't know of its existence until [Akita Anoek][anoek], the main developer of OGS, mentioned it to me. It is also kind of tricky to use global variable in browser extension contexts because most of the standardized files live in isolated worlds, but a solution to this problem can be found [here][so_global_variable].
+A possibly easier way of doing all this would be to use the global variable `global_goban`, which OGS makes available on its pages &mdash; I didn't know of its existence until [Akita Noek][anoek], the main developer of OGS, mentioned it to me. It is also kind of tricky to use global variable in browser extension contexts because most of the standardized files live in isolated worlds, but a solution to this problem can be found [here][so_global_variable].
 
 Lastly, to draw the markers with size and positioning proportional to OGS', I essentially used a brute force approach. I've manually and visually worked out the size and positioning through approximations while with a fixed sized goban on my screen. And then I simply created a `ratio` property based on that goban size, which would be used to multiply the default sizes and positions I had originally worked out. Surprisingly, this approach was enough to make things work. 
 

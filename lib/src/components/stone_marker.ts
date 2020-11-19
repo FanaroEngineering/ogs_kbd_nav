@@ -69,6 +69,14 @@ export default class StoneMarker {
 
   static changeRatio = (ratio: number): StoneMarker =>
     new StoneMarker(StoneMarkerData.fromRatio(ratio));
+
+  static fromCoordinates = (coord: string): StoneMarker => {
+    const lowerCoord: string = coord.toLowerCase();
+    const splitCoord: string[] = lowerCoord.split(/[a-z]/);
+    console.log(splitCoord);
+
+    return new StoneMarker();
+  };
 }
 
 export class StoneMarkerData {

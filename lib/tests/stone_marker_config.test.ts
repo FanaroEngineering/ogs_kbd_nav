@@ -42,7 +42,3 @@ test("fromRatio gives back new stone marker data that only multiplies the defaul
   expect(doubledStoneMarkerData.gobanX).toBe(1);
   expect(doubledStoneMarkerData.gobanY).toBe(19);
 });
-
-test("coordinates as Goban coordinates", () => {
-  // const stoneMarkerData: StoneMarkerData = StoneMarkerData()
-});

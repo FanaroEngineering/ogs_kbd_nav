@@ -95,3 +95,7 @@ test("Changing the ratio changes the proportions and position of the stone marke
   expect(changedStoneMarker.y).toBe(71.5);
   expect(changedStoneMarker.radius).toBe(16);
 });
+
+test("Goban coordinates as numerical coordinates", () => {
+  const stoneMarker: StoneMarker = StoneMarker.fromCoordinates("c11");
+});

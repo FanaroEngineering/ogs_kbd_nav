@@ -1,3 +1,4 @@
+import CoordInputUi from "../ui/coord_input_ui";
 import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
 import AiReview from "./ai_review";
 import Chat from "./chat";
@@ -9,6 +10,7 @@ export default class Kbd {
   private readonly aiReview: AiReview = new AiReview();
   private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
   private stoneMarkerUi: StoneMarkerUi | null = null;
+  private coordInputUi: CoordInputUi | null = null;
 
   constructor() {
     window.onload = this.onLoad;
@@ -20,6 +22,7 @@ export default class Kbd {
     const checkExist: NodeJS.Timeout = setInterval(() => {
       if (document.querySelector(StoneMarkerUi.shadowCanvasQuery) !== null) {
         this.stoneMarkerUi = new StoneMarkerUi();
+        this.coordInputUi = new CoordInputUi();
         clearInterval(checkExist);
       }
     }, 100);
@@ -45,7 +48,7 @@ export default class Kbd {
   };
 
   private pass = (): void => {
-    if (this.kbdEvt.ctrlKey) this.passButton.click();
+    if (this.kbdEvt.shiftKey) this.passButton.click();
   };
 
   private toggleAiReview = (): void => {
@@ -96,8 +99,13 @@ export default class Kbd {
       case "f":
         this.play();
         break;
+      case ".":
+        this.focusCoordInput();
+        break;
     }
   };
+
+  private focusCoordInput = (): void => this.coordInputUi?.focus();
 
   private moveRight = (): void => this.stoneMarkerUi?.move(Direction.right);
 
