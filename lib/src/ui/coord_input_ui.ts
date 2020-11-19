@@ -1,12 +1,11 @@
+import StoneMarker from "../components/stone_marker";
+
 export default class CoordInputUi {
-  private _coordinates: string = "";
+  private coordinates: string = "";
   private coordInput: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
-
-  get coordinates(): string {
-    return this._coordinates;
-  }
+  private stoneMarker: StoneMarker = new StoneMarker();
 
   constructor() {
     const gobanDiv: HTMLDivElement = document.querySelector(
@@ -51,7 +50,41 @@ export default class CoordInputUi {
       );
     } else {
       this.coordInput.setCustomValidity("");
-      this._coordinates = this.coordInput.value;
+      this.coordinates = this.coordInput.value;
+      this.stoneMarker = StoneMarker.fromCoordinates(this.coordinates);
+      this.click();
+      this.coordInput.value = "";
     }
+  };
+
+  private click = (): void => {
+    const gameCanvasQuery: string = "div.Goban > div > canvas#board-canvas";
+    const gameCanvas: HTMLCanvasElement = document.querySelector(
+      gameCanvasQuery
+    ) as HTMLCanvasElement;
+
+    const clickEvent: MouseEvent = document.createEvent("MouseEvent");
+    const topOffset: number = gameCanvas.getBoundingClientRect().top;
+    const leftOffset: number = gameCanvas.getBoundingClientRect().left;
+
+    clickEvent.initMouseEvent(
+      "click",
+      true,
+      true,
+      window,
+      0,
+      0,
+      0,
+      this.stoneMarker.x + leftOffset,
+      this.stoneMarker.y + topOffset,
+      false,
+      false,
+      false,
+      false,
+      0,
+      null
+    );
+
+    gameCanvas.dispatchEvent(clickEvent);
   };
 }

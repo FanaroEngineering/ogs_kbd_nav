@@ -1,5 +1,4 @@
 import StoneMarker from "../components/stone_marker";
-import CoordInputUi from "./coord_input_ui";
 
 export enum Direction {
   right,
@@ -12,8 +11,6 @@ export default class StoneMarkerUi {
   static readonly shadowCanvasQuery: string =
     "div.Goban > div > canvas#shadow-canvas";
   private static readonly defaultCanvasSize: number = 504;
-
-  readonly coordInputUi: CoordInputUi = new CoordInputUi();
 
   private stoneMarker: StoneMarker = new StoneMarker();
   private stoneMarkerCanvas: HTMLCanvasElement = document.createElement(

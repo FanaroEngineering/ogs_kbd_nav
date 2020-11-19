@@ -1,3 +1,4 @@
+import CoordInputUi from "../ui/coord_input_ui";
 import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
 import AiReview from "./ai_review";
 import Chat from "./chat";
@@ -9,6 +10,7 @@ export default class Kbd {
   private readonly aiReview: AiReview = new AiReview();
   private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
   private stoneMarkerUi: StoneMarkerUi | null = null;
+  private coordInputUi: CoordInputUi | null = null;
 
   constructor() {
     window.onload = this.onLoad;
@@ -20,6 +22,7 @@ export default class Kbd {
     const checkExist: NodeJS.Timeout = setInterval(() => {
       if (document.querySelector(StoneMarkerUi.shadowCanvasQuery) !== null) {
         this.stoneMarkerUi = new StoneMarkerUi();
+        this.coordInputUi = new CoordInputUi();
         clearInterval(checkExist);
       }
     }, 100);
@@ -52,8 +55,7 @@ export default class Kbd {
     if (this.kbdEvt.ctrlKey) this.aiReview.toggle();
   };
 
-  private focusCoordInput = (): void =>
-    this.stoneMarkerUi?.coordInputUi?.focus();
+  private focusCoordInput = (): void => this.coordInputUi?.focus();
 
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
@@ -106,7 +108,7 @@ export default class Kbd {
   };
 
   private get anInputIsFocused(): boolean {
-    return !this.chat.isFocused && !this.stoneMarkerUi?.coordInputUi?.isFocused;
+    return !this.chat.isFocused && !this.coordInputUi?.isFocused;
   }
 
   private moveRight = (): void => {

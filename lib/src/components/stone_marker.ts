@@ -71,17 +71,26 @@ export default class StoneMarker {
     new StoneMarker(StoneMarkerData.fromRatio(ratio));
 
   static fromCoordinates = (coord: string): StoneMarker => {
-    const lowerCoord: string = coord.toLowerCase();
-    const splitCoord: string[] = lowerCoord.split(/[a-z]/);
-    console.log(splitCoord);
+    const preGobanX: number = coord.match("[a-t]")![0].charCodeAt(0) - 96;
+    const gobanX: number = preGobanX > 8 ? preGobanX - 1 : preGobanX;
+    const gobanY: number = +coord.match("[0-1]?[0-9]")![0];
 
-    return new StoneMarker();
+    let stoneMarker: StoneMarker = new StoneMarker();
+
+    for (let i = 0; i < gobanX - 1; i++) stoneMarker = stoneMarker.moveRight();
+    for (let i = 0; i < gobanY - 1; i++) stoneMarker = stoneMarker.moveUp();
+
+    console.log(stoneMarker.x);
+    console.log(stoneMarker.y);
+
+    return stoneMarker;
   };
 }
 
 export class StoneMarkerData {
   private static readonly defaultRadiusDxDy = 8;
-  private static readonly defaultXY = 35.75;
+  private static readonly defaultX = 35.75;
+  private static readonly defaultY = 467.75;
 
   static default = (): StoneMarkerData => new StoneMarkerData();
 
@@ -89,17 +98,17 @@ export class StoneMarkerData {
     new StoneMarkerData(
       ratio * StoneMarkerData.defaultRadiusDxDy,
       ratio * StoneMarkerData.defaultRadiusDxDy,
-      ratio * StoneMarkerData.defaultXY,
-      ratio * StoneMarkerData.defaultXY
+      ratio * StoneMarkerData.defaultX,
+      ratio * StoneMarkerData.defaultY
     );
 
   private constructor(
     readonly radius: number = StoneMarkerData.defaultRadiusDxDy,
     readonly dxdy: number = StoneMarkerData.defaultRadiusDxDy,
-    readonly x: number = StoneMarkerData.defaultXY,
-    readonly y: number = StoneMarkerData.defaultXY,
+    readonly x: number = StoneMarkerData.defaultX,
+    readonly y: number = StoneMarkerData.defaultY,
     readonly gobanX: number = 1,
-    readonly gobanY: number = 19
+    readonly gobanY: number = 1
   ) {}
 
   get diameter(): number {
