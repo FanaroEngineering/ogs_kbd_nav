@@ -55,6 +55,8 @@ export default class Kbd {
     if (this.kbdEvt.ctrlKey) this.aiReview.toggle();
   };
 
+  private focusCoordInput = (): void => this.coordInputUi?.focus();
+
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
       case "b":
@@ -68,6 +70,9 @@ export default class Kbd {
         break;
       case ";":
         this.toggleAiReview();
+        break;
+      case ".":
+        this.focusCoordInput();
         break;
       case "d":
         this.moveRight();
@@ -99,29 +104,34 @@ export default class Kbd {
       case "f":
         this.play();
         break;
-      case ".":
-        this.focusCoordInput();
-        break;
     }
   };
 
-  private focusCoordInput = (): void => this.coordInputUi?.focus();
-
-  private moveRight = (): void => this.stoneMarkerUi?.move(Direction.right);
-
-  private moveDown = (): void => this.stoneMarkerUi?.move(Direction.down);
-
-  private moveLeft = (): void => {
-    const backToGameButtonQuery: string =
-      "div.analyze-mode-buttons > span > button";
-    const backToGameButton: HTMLButtonElement = document.querySelector(
-      backToGameButtonQuery
-    ) as HTMLButtonElement;
-    backToGameButton?.click();
-    this.stoneMarkerUi?.move(Direction.left);
+  private moveRight = (): void => {
+    if (!this.chat.isFocused) this.stoneMarkerUi?.move(Direction.right);
   };
 
-  private moveUp = (): void => this.stoneMarkerUi?.move(Direction.up);
+  private moveDown = (): void => {
+    if (!this.chat.isFocused) this.stoneMarkerUi?.move(Direction.down);
+  };
 
-  private play = (): void => this.stoneMarkerUi?.click();
+  private moveLeft = (): void => {
+    if (!this.chat.isFocused) {
+      const backToGameButtonQuery: string =
+        "div.analyze-mode-buttons > span > button";
+      const backToGameButton: HTMLButtonElement = document.querySelector(
+        backToGameButtonQuery
+      ) as HTMLButtonElement;
+      backToGameButton?.click();
+      this.stoneMarkerUi?.move(Direction.left);
+    }
+  };
+
+  private moveUp = (): void => {
+    if (!this.chat.isFocused) this.stoneMarkerUi?.move(Direction.up);
+  };
+
+  private play = (): void => {
+    if (!this.chat.isFocused) this.stoneMarkerUi?.click();
+  };
 }

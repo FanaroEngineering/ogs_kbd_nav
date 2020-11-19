@@ -8,12 +8,16 @@ export default class CoordInputUi {
       "div.goban-container"
     ) as HTMLDivElement;
 
-    this.coordInput.style.position = "absolute";
-    this.coordInput.style.bottom = "0";
-    this.coordInput.style.borderColor = "green";
+    this.style();
 
     gobanDiv.append(this.coordInput);
   }
+
+  private style = (): void => {
+    this.coordInput.style.position = "absolute";
+    this.coordInput.style.bottom = "0";
+    this.coordInput.style.borderColor = "green";
+  };
 
   focus = (): void => this.coordInput.focus();
 }
