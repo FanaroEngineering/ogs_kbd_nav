@@ -20,4 +20,8 @@ export default class CoordInputUi {
   };
 
   focus = (): void => this.coordInput.focus();
+
+  get isFocused(): boolean {
+    return document.activeElement == this.coordInput;
+  }
 }

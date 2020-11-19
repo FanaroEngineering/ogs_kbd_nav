@@ -107,31 +107,39 @@ export default class Kbd {
     }
   };
 
+  private get anInputIsFocused(): boolean {
+    return !this.chat.isFocused && !this.coordInputUi?.isFocused;
+  }
+
   private moveRight = (): void => {
-    if (!this.chat.isFocused) this.stoneMarkerUi?.move(Direction.right);
+    if (this.anInputIsFocused) this.stoneMarkerUi?.move(Direction.right);
   };
 
   private moveDown = (): void => {
-    if (!this.chat.isFocused) this.stoneMarkerUi?.move(Direction.down);
+    if (this.anInputIsFocused) this.stoneMarkerUi?.move(Direction.down);
   };
 
   private moveLeft = (): void => {
-    if (!this.chat.isFocused) {
-      const backToGameButtonQuery: string =
-        "div.analyze-mode-buttons > span > button";
-      const backToGameButton: HTMLButtonElement = document.querySelector(
-        backToGameButtonQuery
-      ) as HTMLButtonElement;
-      backToGameButton?.click();
+    if (this.anInputIsFocused) {
+      this.skipAnalysis();
       this.stoneMarkerUi?.move(Direction.left);
     }
   };
 
+  private skipAnalysis = (): void => {
+    const backToGameButtonQuery: string =
+      "div.analyze-mode-buttons > span > button";
+    const backToGameButton: HTMLButtonElement = document.querySelector(
+      backToGameButtonQuery
+    ) as HTMLButtonElement;
+    backToGameButton?.click();
+  };
+
   private moveUp = (): void => {
-    if (!this.chat.isFocused) this.stoneMarkerUi?.move(Direction.up);
+    if (this.anInputIsFocused) this.stoneMarkerUi?.move(Direction.up);
   };
 
   private play = (): void => {
-    if (!this.chat.isFocused) this.stoneMarkerUi?.click();
+    if (this.anInputIsFocused) this.stoneMarkerUi?.click();
   };
 }
