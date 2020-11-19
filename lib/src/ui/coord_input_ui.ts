@@ -51,12 +51,26 @@ export default class CoordInputUi {
     } else {
       this.coordInput.setCustomValidity("");
       this.coordinates = this.coordInput.value;
-      this.stoneMarker = StoneMarker.fromCoordinates(this.coordinates);
+      this.stoneMarker = StoneMarker.fromCoordinates(
+        this.coordinates,
+        this.ratio
+      );
       this.click();
       this.coordInput.value = "";
     }
   };
 
+  // TODO: this is basically a repetition of what's inside the `StoneMarkerUi`.
+  private get ratio(): number {
+    const gameCanvasQuery: string = "div.Goban > div > canvas#board-canvas";
+    const gameCanvas: HTMLCanvasElement = document.querySelector(
+      gameCanvasQuery
+    ) as HTMLCanvasElement;
+
+    return gameCanvas.width / 504;
+  }
+
+  // TODO: this is basically a repetition of what's inside the `StoneMarkerUi`.
   private click = (): void => {
     const gameCanvasQuery: string = "div.Goban > div > canvas#board-canvas";
     const gameCanvas: HTMLCanvasElement = document.querySelector(
