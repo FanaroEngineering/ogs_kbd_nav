@@ -48,7 +48,7 @@ export default class Kbd {
   };
 
   private pass = (): void => {
-    if (this.kbdEvt.shiftKey) this.passButton.click();
+    if (this.kbdEvt.ctrlKey) this.passButton.click();
   };
 
   private toggleAiReview = (): void => {
@@ -65,7 +65,7 @@ export default class Kbd {
       case "m":
         this.toggleChatInput();
         break;
-      case "p":
+      case "[":
         this.pass();
         break;
       case ";":

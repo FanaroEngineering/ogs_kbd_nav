@@ -70,9 +70,9 @@ At first I didn't believe any of the benefits above, but, after trying it out fo
 | <kbd>s</kbd> or <kbd>&darr;</kbd> | Move the stone marker down                      |
 | <kbd>d</kbd> or <kbd>&rarr;</kbd> | Move the stone marker right                     |
 | <kbd>Enter</kbd> or <kbd>f</kbd>  | Click on the stone marker's location            |
-| <kbd>Shift</kbd> + <kbd>p</kbd>   | Pass                                            |
+| <kbd>Ctrl</kbd> + <kbd>[</kbd>    | Pass                                            |
 | <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                              |
-| <kbd>Ctrl</kbd> +  <kbd>.</kbd>     | Toggle the coordinates input field<sup>2</sup>  |
+| <kbd>Ctrl</kbd> +  <kbd>.</kbd>   | Toggle the coordinates input field<sup>2</sup>  |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub> 
 <br>
