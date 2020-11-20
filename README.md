@@ -48,7 +48,7 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 
 ## 2. Why?
 
-Mostly, because I wanted. But I also do believe that other players will benefit greatly from this, because:
+Mostly, because I wanted to. But I also do believe that other players will benefit greatly from this, because:
 
 - Using the keyboard where there are specialized keys for different actions will **diminish the likelihood of missclicks**.
 - Even though it can be annoying to have to move the marker with across the whole board when there are drastic changes in plays' locations, on average, your playing speed will increase. And that means you're gonna have **less friction between the interface and your brain**, which will let you focus better on the game.
