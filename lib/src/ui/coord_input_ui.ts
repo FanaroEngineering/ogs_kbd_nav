@@ -67,7 +67,7 @@ export default class CoordInputUi {
       );
     } else {
       this.coordInput.setCustomValidity("");
-      this.coordinates = this.coordInput.value;
+      this.coordinates = this.coordInput.value.toLowerCase();
       this.stoneMarker = StoneMarker.fromCoordinates(
         this.coordinates,
         this.ratio
