@@ -5,18 +5,21 @@ export default class CoordInputUi {
   private coordInput: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
+  private coordInputDiv: HTMLDivElement = document.createElement(
+    "div"
+  ) as HTMLDivElement;
   private stoneMarker: StoneMarker = new StoneMarker();
 
   constructor() {
-    const gobanDiv: HTMLDivElement = document.querySelector(
-      "div.goban-container"
-    ) as HTMLDivElement;
-
     this.style();
     this.builtInValidation();
     this.coordInput.onchange = this.onChange;
 
-    gobanDiv.append(this.coordInput);
+    const rightColDiv: HTMLDivElement = document.querySelector(
+      "div.right-col"
+    ) as HTMLDivElement;
+
+    rightColDiv.append(this.coordInputDiv);
   }
 
   private style = (): void => {
@@ -28,12 +31,10 @@ export default class CoordInputUi {
     this.coordInput.size = this.coordInput.placeholder.length - 2;
     this.coordInput.style.position = "absolute";
     this.coordInput.style.bottom = "0";
-    this.coordInput.style.border = "1.5px solid green";
+    this.coordInput.style.border = "1px solid green";
     this.coordInput.style.padding = "7.5px";
     this.coordInput.style.paddingLeft = "10px";
     this.coordInput.style.backgroundColor = "black";
-    this.coordInput.style.position = "absolute";
-    this.coordInput.style.bottom = "10px";
   };
 
   private builtInValidation = (): void => {
@@ -42,10 +43,15 @@ export default class CoordInputUi {
     this.coordInput.pattern = "[A-T|a-t][0-1]?[0-9]";
   };
 
-  toggle = (): void =>
-    document.activeElement == this.coordInput
-      ? this.coordInput.blur()
-      : this.coordInput.focus();
+  toggle = (): void => {
+    if (document.activeElement == this.coordInput) {
+      this.coordInput.blur();
+      this.coordInputDiv.removeChild(this.coordInput);
+    } else {
+      this.coordInputDiv.append(this.coordInput);
+      this.coordInput.focus();
+    }
+  };
 
   get isFocused(): boolean {
     return document.activeElement == this.coordInput;
