@@ -5,9 +5,12 @@
 [![Gitter][gitter_svg]][gitter_badge]
 [![Buy Me A Coffee][buy_me_a_coffee_badge]][buy_me_a_coffee_donation]
 
+[![GIF][gif]][github_releases]
+
 
 [buy_me_a_coffee_badge]: assets/buy_me_a_coffee_shield.svg
 [buy_me_a_coffee_donation]: https://www.buymeacoffee.com/psygo
+[gif]: assets/demo.gif
 [github_actions]: https://github.com/FanaroEngineering/ogs_kbd_nav/actions
 [github_ci_badge]: https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg
 [github_downloads]: https://img.shields.io/github/downloads/FanaroEngineering/ogs_kbd_nav/total.svg
