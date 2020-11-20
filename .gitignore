@@ -6,3 +6,4 @@ dist/*
 !dist/prod/
 dist/prod/*
 !dist/prod/manifest.json
+!dist/prod/favicon.png

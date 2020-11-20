@@ -13,5 +13,8 @@
                 "content.js"
             ]
         }
-    ]
+    ],
+    "icons": {
+        "128": "favicon.png"
+    }
 }
