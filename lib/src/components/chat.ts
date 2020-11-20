@@ -6,11 +6,10 @@ export default class Chat {
     return document.querySelector(Chat.chatInputQuery) as HTMLInputElement;
   }
 
-  toggleChatInput = (): void => {
+  toggleChatInput = (): void =>
     document.activeElement == this.chatInput
       ? this.chatInput?.blur()
       : this.chatInput?.focus();
-  };
 
   get isFocused(): boolean {
     return document.activeElement == this.chatInput;

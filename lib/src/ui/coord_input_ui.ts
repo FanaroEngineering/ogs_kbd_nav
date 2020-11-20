@@ -22,13 +22,18 @@ export default class CoordInputUi {
   private style = (): void => {
     this.coordInput.id = "coordinates";
     this.coordInput.type = "text";
+    this.coordInput.style.zIndex = "100";
+    this.coordInput.draggable = true;
     this.coordInput.placeholder = "Coordinates";
     this.coordInput.size = this.coordInput.placeholder.length - 2;
     this.coordInput.style.position = "absolute";
     this.coordInput.style.bottom = "0";
-    this.coordInput.style.border = "1px solid green";
+    this.coordInput.style.border = "1.5px solid green";
     this.coordInput.style.padding = "7.5px";
     this.coordInput.style.paddingLeft = "10px";
+    this.coordInput.style.backgroundColor = "black";
+    this.coordInput.style.position = "absolute";
+    this.coordInput.style.bottom = "10px";
   };
 
   private builtInValidation = (): void => {
