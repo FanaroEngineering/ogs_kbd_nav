@@ -18,19 +18,20 @@
 <!-- TOC depthFrom:2 -->
 
 - [1. What is this?](#1-what-is-this)
-- [2. Table of Shortcuts](#2-table-of-shortcuts)
-- [3. How to Install This Browser Extension](#3-how-to-install-this-browser-extension)
-    - [3.1. From a Github Release](#31-from-a-github-release)
-    - [3.2. Google Chrome](#32-google-chrome)
-    - [3.3. Microsoft Edge](#33-microsoft-edge)
-    - [3.4. Firefox](#34-firefox)
-- [4. Other Resources](#4-other-resources)
-- [5. For the Developer](#5-for-the-developer)
-    - [5.1. How does this work?](#51-how-does-this-work)
-    - [5.2. Compiling with TypeScript](#52-compiling-with-typescript)
-    - [5.3. Compiling with Webpack](#53-compiling-with-webpack)
-    - [5.4. Running Tests](#54-running-tests)
-    - [5.5. The Complete Development Setup](#55-the-complete-development-setup)
+- [2. Why?](#2-why)
+- [3. Table of Shortcuts](#3-table-of-shortcuts)
+- [4. How to Install This Browser Extension](#4-how-to-install-this-browser-extension)
+    - [4.1. From a Github Release](#41-from-a-github-release)
+    - [4.2. Google Chrome](#42-google-chrome)
+    - [4.3. Microsoft Edge](#43-microsoft-edge)
+    - [4.4. Firefox](#44-firefox)
+- [5. Other Resources](#5-other-resources)
+- [6. For the Developer](#6-for-the-developer)
+    - [6.1. How does this work?](#61-how-does-this-work)
+    - [6.2. Compiling with TypeScript](#62-compiling-with-typescript)
+    - [6.3. Compiling with Webpack](#63-compiling-with-webpack)
+    - [6.4. Running Tests](#64-running-tests)
+    - [6.5. The Complete Development Setup](#65-the-complete-development-setup)
 
 <!-- /TOC -->
 
@@ -42,7 +43,16 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 [go]: https://en.wikipedia.org/wiki/Go_(game)
 [ogs]: https://online-go.com/
 
-## 2. Table of Shortcuts
+## 2. Why?
+
+Mostly, because I wanted. But I also do believe that other players will benefit greatly from this, because:
+
+- Using the keyboard where there are specialized keys for different actions will **diminish the likelihood of missclicks**.
+- Even though it can be annoying to have to move the marker with across the whole board when there are drastic changes in plays' locations, on average, your playing speed will increase. And that means you're gonna have less friction between the interface and your brain, which will let you focus better on the game.
+
+At first I didn't believe any of the benefits above, but, after trying it out for a week, I can clearly say it did help, it did improve the UI/UX.
+
+## 3. Table of Shortcuts
 
 > **This extension currently only works if you have *all* the coordinates turned on.**
 
@@ -62,14 +72,14 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub>
 <sub>2: The coordinates should be of the form letter &mdash; lower or uppercase &mdash; and a number from 1 to 19. For example, both `c11` and `C11` are valid.</sub>
 
-## 3. How to Install This Browser Extension
+## 4. How to Install This Browser Extension
 
 You can either install it through the [Github releases][releases] or through the &mdash; future &mdash; published extensions on Google Chrome's, Microsoft Edge's and Firefox's browser extension stores.
 
 
 [releases]: https://github.com/FanaroEngineering/ogs_kbd_nav/releases
 
-### 3.1. From a Github Release
+### 4.1. From a Github Release
 
 1. Go to the [releases][releases] page.
 1. Download the latest release's ZIP folder.
@@ -78,13 +88,13 @@ You can either install it through the [Github releases][releases] or through the
 1. Activate <kbd>Developer Mode</kbd>.
 1. Load the unpacked extension.
 
-### 3.2. Google Chrome
+### 4.2. Google Chrome
 
-### 3.3. Microsoft Edge
+### 4.3. Microsoft Edge
 
-### 3.4. Firefox
+### 4.4. Firefox
 
-## 4. Other Resources
+## 5. Other Resources
 
 Two other examples of keyboard navigation browser extensions:
 
@@ -98,9 +108,9 @@ Two other examples of keyboard navigation browser extensions:
 [web_search_navigator]: https://github.com/infokiller/web-search-navigator
 [youtube_kbd_nav]: https://github.com/FanaroEngineering/youtube_kbd_nav
 
-## 5. For the Developer
+## 6. For the Developer
 
-### 5.1. How does this work?
+### 6.1. How does this work?
 
 I'm basically using the [`StoneMarkerUi`][stonemarkerui] class to draw a canvas on top of the existing OGS ones with the movable marker. It would be tough to make it work with the same existing canvas because erasing stuff while OGS tries to draw its own doesn't work very well in HTML.
 
@@ -113,7 +123,7 @@ Lastly, to draw the markers with size and positioning proportional to OGS', I es
 [so_global_variable]: https://stackoverflow.com/a/64823100/4756173
 [stonemarkerui]: lib/src/ui/stone_marker_ui.ts
 
-### 5.2. Compiling with TypeScript
+### 6.2. Compiling with TypeScript
 
 The JS code won't be version controlled (`dist`), the programmer should be able to easily recreate it by compiling it from the TS code (`src`).
 
@@ -123,7 +133,7 @@ Simply use this to compile the TS code to JS:
 tsc -w
 ```
 
-### 5.3. Compiling with Webpack
+### 6.3. Compiling with Webpack
 
 After installing the `webpack-cli` package, run:
 
@@ -133,7 +143,7 @@ npx webpack -w
 
 to enable compilation bundling and minifying on watch mode.
 
-### 5.4. Running Tests
+### 6.4. Running Tests
 
 If you use `tsc -w`, you can either use `npm t` to run tests with [Jest][jest] or use the following to watch the tests as the code changes with `tsc -w`:
 
@@ -144,7 +154,7 @@ npm t -- --watch
 
 [jest]: https://jestjs.io/en/
 
-### 5.5. The Complete Development Setup
+### 6.5. The Complete Development Setup
 
 The current setup will compile TS code to JS into the `dist/dev` folder for testing purposes (TDD), while compiling production code into the `dist/prod` folder for (manual) testing inside the browser.
 

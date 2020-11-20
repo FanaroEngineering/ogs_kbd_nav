@@ -35,6 +35,7 @@ export default class CoordInputUi {
     this.coordInput.style.padding = "7.5px";
     this.coordInput.style.paddingLeft = "10px";
     this.coordInput.style.backgroundColor = "black";
+    this.coordInput.style.bottom = "10px";
   };
 
   private builtInValidation = (): void => {
