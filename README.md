@@ -57,7 +57,7 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 | <kbd>Enter</kbd> or <kbd>f</kbd>  | Click on the stone marker's location            |
 | <kbd>Shift</kbd> + <kbd>p</kbd>   | Pass                                            |
 | <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                              |
-| <kbd>Ctrl</kbd> + <kbd>.<kbd>     | Focus the coordinates input field<sup>2</sup>   |
+| <kbd>Ctrl</kbd> + <kbd>.<kbd>     | Toggle the coordinates input field<sup>2</sup>  |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub>
 <sub>2: The coordinates should be of the form letter &mdash; lower or uppercase &mdash; and a number from 1 to 19. For example, both `c11` and `C11` are valid.</sub>
