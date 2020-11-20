@@ -23,10 +23,12 @@ export default class CoordInputUi {
     this.coordInput.id = "coordinates";
     this.coordInput.type = "text";
     this.coordInput.placeholder = "Coordinates";
-    this.coordInput.size = this.coordInput.placeholder.length;
+    this.coordInput.size = this.coordInput.placeholder.length - 2;
     this.coordInput.style.position = "absolute";
     this.coordInput.style.bottom = "0";
-    this.coordInput.style.borderColor = "green";
+    this.coordInput.style.border = "1px solid green";
+    this.coordInput.style.padding = "7.5px";
+    this.coordInput.style.paddingLeft = "10px";
   };
 
   private builtInValidation = (): void => {
@@ -35,7 +37,10 @@ export default class CoordInputUi {
     this.coordInput.pattern = "[A-T|a-t][0-1]?[0-9]";
   };
 
-  focus = (): void => this.coordInput.focus();
+  toggle = (): void =>
+    document.activeElement == this.coordInput
+      ? this.coordInput.blur()
+      : this.coordInput.focus();
 
   get isFocused(): boolean {
     return document.activeElement == this.coordInput;
@@ -60,26 +65,22 @@ export default class CoordInputUi {
     }
   };
 
-  // TODO: this is basically a repetition of what's inside the `StoneMarkerUi`.
-  private get ratio(): number {
+  // This is basically a repetition of what's inside the `StoneMarkerUi`, but I
+  // will not do anything about it for now because it might make things more
+  // unreadable actually.
+  private get gameCanvas(): HTMLCanvasElement {
     const gameCanvasQuery: string = "div.Goban > div > canvas#board-canvas";
-    const gameCanvas: HTMLCanvasElement = document.querySelector(
-      gameCanvasQuery
-    ) as HTMLCanvasElement;
-
-    return gameCanvas.width / 504;
+    return document.querySelector(gameCanvasQuery) as HTMLCanvasElement;
   }
 
-  // TODO: this is basically a repetition of what's inside the `StoneMarkerUi`.
-  private click = (): void => {
-    const gameCanvasQuery: string = "div.Goban > div > canvas#board-canvas";
-    const gameCanvas: HTMLCanvasElement = document.querySelector(
-      gameCanvasQuery
-    ) as HTMLCanvasElement;
+  private get ratio(): number {
+    return this.gameCanvas.width / 504;
+  }
 
+  private click = (): void => {
     const clickEvent: MouseEvent = document.createEvent("MouseEvent");
-    const topOffset: number = gameCanvas.getBoundingClientRect().top;
-    const leftOffset: number = gameCanvas.getBoundingClientRect().left;
+    const topOffset: number = this.gameCanvas.getBoundingClientRect().top;
+    const leftOffset: number = this.gameCanvas.getBoundingClientRect().left;
 
     clickEvent.initMouseEvent(
       "click",
@@ -99,6 +100,6 @@ export default class CoordInputUi {
       null
     );
 
-    gameCanvas.dispatchEvent(clickEvent);
+    this.gameCanvas.dispatchEvent(clickEvent);
   };
 }

@@ -70,7 +70,6 @@ export default class StoneMarker {
   static changeRatio = (ratio: number): StoneMarker =>
     new StoneMarker(StoneMarkerData.fromRatio(ratio));
 
-  // TODO: try to get rid of the `ratio` parameter.
   static fromCoordinates = (coord: string, ratio: number = 1): StoneMarker => {
     const preGobanX: number = coord.match("[a-t]")![0].charCodeAt(0) - 96;
     const gobanX: number = preGobanX > 8 ? preGobanX - 1 : preGobanX;

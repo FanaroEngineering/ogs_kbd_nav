@@ -55,7 +55,7 @@ export default class Kbd {
     if (this.kbdEvt.ctrlKey) this.aiReview.toggle();
   };
 
-  private focusCoordInput = (): void => this.coordInputUi?.focus();
+  private toggleCoordInput = (): void => this.coordInputUi?.toggle();
 
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
@@ -72,7 +72,7 @@ export default class Kbd {
         this.toggleAiReview();
         break;
       case ".":
-        this.focusCoordInput();
+        this.toggleCoordInput();
         break;
       case "d":
         this.moveRight();
