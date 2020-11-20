@@ -48,13 +48,15 @@ Keyboard &mdash; better &mdash; navigation for [OGS][ogs], the best online platf
 Mostly, because I wanted. But I also do believe that other players will benefit greatly from this, because:
 
 - Using the keyboard where there are specialized keys for different actions will **diminish the likelihood of missclicks**.
-- Even though it can be annoying to have to move the marker with across the whole board when there are drastic changes in plays' locations, on average, your playing speed will increase. And that means you're gonna have less friction between the interface and your brain, which will let you focus better on the game.
+- Even though it can be annoying to have to move the marker with across the whole board when there are drastic changes in plays' locations, on average, your playing speed will increase. And that means you're gonna have **less friction between the interface and your brain**, which will let you focus better on the game.
 
 At first I didn't believe any of the benefits above, but, after trying it out for a week, I can clearly say it did help, it did improve the UI/UX.
 
 ## 3. Table of Shortcuts
 
 > **This extension currently only works if you have *all* the coordinates turned on.**
+
+> You might experience the extension not working when you transition to a game page. In that case, simply refresh the page and it will most likely work again.
 
 | Shortcut                          | Action                                          |
 | --------------------------------- | ----------------------------------------------- |
@@ -69,7 +71,8 @@ At first I didn't believe any of the benefits above, but, after trying it out fo
 | <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                              |
 | <kbd>Ctrl</kbd> + <kbd>.<kbd>     | Toggle the coordinates input field<sup>2</sup>  |
 
-<sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub>
+<sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub> 
+<br>
 <sub>2: The coordinates should be of the form letter &mdash; lower or uppercase &mdash; and a number from 1 to 19. For example, both `c11` and `C11` are valid.</sub>
 
 ## 4. How to Install This Browser Extension
