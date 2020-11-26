@@ -25,10 +25,10 @@
 - [3. Table of Shortcuts](#3-table-of-shortcuts)
 - [4. How to Install This Browser Extension](#4-how-to-install-this-browser-extension)
     - [4.1. From the Different Stores](#41-from-the-different-stores)
-    - [4.1. From a Github Release](#41-from-a-github-release)
-        - [4.2. Google Chrome](#42-google-chrome)
-        - [4.3. Microsoft Edge](#43-microsoft-edge)
-        - [4.4. Firefox](#44-firefox)
+    - [4.2. From a Github Release](#42-from-a-github-release)
+        - [4.2.1. Google Chrome](#421-google-chrome)
+        - [4.2.3. Firefox](#423-firefox)
+        - [4.2.2. Microsoft Edge](#422-microsoft-edge)
 - [5. Other Resources](#5-other-resources)
 - [6. For the Developer](#6-for-the-developer)
     - [6.1. How does this work?](#61-how-does-this-work)
@@ -101,7 +101,7 @@ You can either install it through the [Github releases][releases] or through the
 [edge]: https://microsoftedge.microsoft.com/addons/detail/ogs-kbd-nav/
 [firefox]: https://addons.mozilla.org/en-US/firefox/addon/ogs-kbd-nav/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
 
-### 4.1. From a Github Release
+### 4.2. From a Github Release
 
 1. Go to the [releases][releases] page.
 1. Download the latest release's ZIP folder.
@@ -110,11 +110,34 @@ You can either install it through the [Github releases][releases] or through the
 1. Activate <kbd>Developer Mode</kbd>.
 1. Load the unpacked extension.
 
-#### 4.2. Google Chrome
+#### 4.2.1. Google Chrome
 
-#### 4.3. Microsoft Edge
+1. Unzip the extension in a local folder.
+1. Go to [chrome://extensions/][chrome_extensions]
+1. Activate <kbd>Developer mode</kbd> on the upper-right corner.
+1. Click on <kbd>Load unpacked</kbd> and choose the folder where you unzipped the extension.
 
-#### 4.4. Firefox
+
+[chrome_extensions]: chrome://extensions/
+
+#### 4.2.3. Firefox
+
+1. Go to [about:debugging][about_debugging]
+1. Click on <kbd>This Firefox</kbd>.
+1. Click on <kbd>Load Temporary Add-on...</kbd> and load the zip file directly.
+
+
+[about_debugging]: about:debugging
+
+#### 4.2.2. Microsoft Edge
+
+1. Unzip the extension in a local folder.
+1. Go to [edge://extensions][edge_extensions]
+1. Activate <kbd>Developer mode</kbd> on the lower-left corner.
+1. Click on <kbd>Load unpacked</kbd> and choose the folder where you unzipped the extension.
+
+
+[edge_extensions]: edge://extensions/
 
 ## 5. Other Resources
 
