@@ -5,11 +5,14 @@
 [![Gitter][gitter_svg]][gitter_badge]
 [![Buy Me A Coffee][buy_me_a_coffee_badge]][buy_me_a_coffee_donation]
 
+> **Check out the respective post on my website [here][fanaro_post].**
+
 [![GIF][gif]][github_releases]
 
 
 [buy_me_a_coffee_badge]: assets/buy_me_a_coffee_shield.svg
 [buy_me_a_coffee_donation]: https://www.buymeacoffee.com/psygo
+[fanaro_post]: https://fanaro.com.br/ogs-kbd-nav/
 [gif]: assets/demo.gif
 [github_actions]: https://github.com/FanaroEngineering/ogs_kbd_nav/actions
 [github_ci_badge]: https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg
@@ -27,8 +30,8 @@
     - [4.1. From the Different Stores](#41-from-the-different-stores)
     - [4.2. From a Github Release](#42-from-a-github-release)
         - [4.2.1. Google Chrome](#421-google-chrome)
-        - [4.2.3. Firefox](#423-firefox)
-        - [4.2.2. Microsoft Edge](#422-microsoft-edge)
+        - [4.2.2. Firefox](#422-firefox)
+        - [4.2.3. Microsoft Edge](#423-microsoft-edge)
 - [5. Other Resources](#5-other-resources)
 - [6. For the Developer](#6-for-the-developer)
     - [6.1. How does this work?](#61-how-does-this-work)
@@ -90,6 +93,8 @@ You can either install it through the [Github releases][releases] or through the
 
 ### 4.1. From the Different Stores
 
+Choose one of the links below:
+
 | Browser Extension Store |
 | ----------------------- |
 | [Chrome][chrome]        |
@@ -120,7 +125,7 @@ You can either install it through the [Github releases][releases] or through the
 
 [chrome_extensions]: chrome://extensions/
 
-#### 4.2.3. Firefox
+#### 4.2.2. Firefox
 
 1. Go to [about:debugging][about_debugging]
 1. Click on <kbd>This Firefox</kbd>.
@@ -129,7 +134,7 @@ You can either install it through the [Github releases][releases] or through the
 
 [about_debugging]: about:debugging
 
-#### 4.2.2. Microsoft Edge
+#### 4.2.3. Microsoft Edge
 
 1. Unzip the extension in a local folder.
 1. Go to [edge://extensions][edge_extensions]
