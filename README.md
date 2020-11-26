@@ -24,10 +24,11 @@
 - [2. Why?](#2-why)
 - [3. Table of Shortcuts](#3-table-of-shortcuts)
 - [4. How to Install This Browser Extension](#4-how-to-install-this-browser-extension)
+    - [4.1. From the Different Stores](#41-from-the-different-stores)
     - [4.1. From a Github Release](#41-from-a-github-release)
-    - [4.2. Google Chrome](#42-google-chrome)
-    - [4.3. Microsoft Edge](#43-microsoft-edge)
-    - [4.4. Firefox](#44-firefox)
+        - [4.2. Google Chrome](#42-google-chrome)
+        - [4.3. Microsoft Edge](#43-microsoft-edge)
+        - [4.4. Firefox](#44-firefox)
 - [5. Other Resources](#5-other-resources)
 - [6. For the Developer](#6-for-the-developer)
     - [6.1. How does this work?](#61-how-does-this-work)
@@ -61,6 +62,8 @@ At first I didn't believe any of the benefits above, but, after trying it out fo
 
 > You might experience the extension not working when you transition to a game page. In that case, simply refresh the page and it will most likely work again.
 
+If you don't want conflict with OGS' UI, prefer the WASD keys instead of the arrow keys.
+
 | Shortcut                          | Action                                          |
 | --------------------------------- | ----------------------------------------------- |
 | <kbd>Ctrl</kbd> + <kbd>m</kbd>    | Toggle the chat input box on a game page        |
@@ -85,6 +88,19 @@ You can either install it through the [Github releases][releases] or through the
 
 [releases]: https://github.com/FanaroEngineering/ogs_kbd_nav/releases
 
+### 4.1. From the Different Stores
+
+| Browser Extension Store |
+| ----------------------- |
+| [Chrome][chrome]        |
+| [Firefox][firefox]      |
+| [Edge][edge]            |
+
+
+[chrome]: https://chrome.google.com/webstore/detail/ogs-kbd-nav/blcjnnogmdhggfgdpploigilegjdopmp?hl=en&authuser=0
+[edge]: https://microsoftedge.microsoft.com/addons/detail/ogs-kbd-nav/
+[firefox]: https://addons.mozilla.org/en-US/firefox/addon/ogs-kbd-nav/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
+
 ### 4.1. From a Github Release
 
 1. Go to the [releases][releases] page.
@@ -94,11 +110,11 @@ You can either install it through the [Github releases][releases] or through the
 1. Activate <kbd>Developer Mode</kbd>.
 1. Load the unpacked extension.
 
-### 4.2. Google Chrome
+#### 4.2. Google Chrome
 
-### 4.3. Microsoft Edge
+#### 4.3. Microsoft Edge
 
-### 4.4. Firefox
+#### 4.4. Firefox
 
 ## 5. Other Resources
 
