@@ -1,38 +1,13 @@
-import CoordInputUi from "../ui/coord_input_ui";
-import StoneMarkerUi, { Direction } from "../ui/stone_marker_ui";
-import AiReview from "./ai_review";
-import Chat from "./chat";
-import PassButton from "./pass";
+import { Direction } from "../ui/stone_marker_ui";
+import Ui from "../ui/ui";
 
 export default class Kbd {
-  private readonly chat: Chat = new Chat();
-  private readonly passButton: PassButton = new PassButton();
-  private readonly aiReview: AiReview = new AiReview();
   private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
-  private stoneMarkerUi: StoneMarkerUi | null = null;
-  private coordInputUi: CoordInputUi | null = null;
+  private ui: Ui = new Ui();
 
   constructor() {
-    window.onload = this.onLoad;
-    window.onresize = this.onResize;
     document.onkeydown = this.onKeydown;
   }
-
-  private onLoad = (_: Event) => {
-    const checkExist: NodeJS.Timeout = setInterval(() => {
-      if (document.querySelector(StoneMarkerUi.shadowCanvasQuery) !== null) {
-        this.stoneMarkerUi = new StoneMarkerUi();
-        this.coordInputUi = new CoordInputUi();
-        clearInterval(checkExist);
-      }
-    }, 100);
-  };
-
-  private onResize = (_: UIEvent) => {
-    if (this.stoneMarkerUi?.canvasOn) this.stoneMarkerUi?.toggleCanvas();
-    this.stoneMarkerUi = new StoneMarkerUi();
-    this.stoneMarkerUi?.toggleCanvas();
-  };
 
   private onKeydown = (evt: KeyboardEvent) => {
     this.kbdEvt = evt;
@@ -40,22 +15,22 @@ export default class Kbd {
   };
 
   private toggleCanvas = (): void => {
-    if (this.kbdEvt.ctrlKey) this.stoneMarkerUi?.toggleCanvas();
+    if (this.kbdEvt.ctrlKey) this.ui.stoneMarkerUi?.toggleCanvas();
   };
 
   private toggleChatInput = (): void => {
-    if (this.kbdEvt.ctrlKey) this.chat.toggleChatInput();
+    if (this.kbdEvt.ctrlKey) this.ui.chat.toggleChatInput();
   };
 
   private pass = (): void => {
-    if (this.kbdEvt.ctrlKey) this.passButton.click();
+    if (this.kbdEvt.ctrlKey) this.ui.passButton.click();
   };
 
   private toggleAiReview = (): void => {
-    if (this.kbdEvt.ctrlKey) this.aiReview.toggle();
+    if (this.kbdEvt.ctrlKey) this.ui.aiReview.toggle();
   };
 
-  private toggleCoordInput = (): void => this.coordInputUi?.toggle();
+  private toggleCoordInput = (): void => this.ui.coordInputUi?.toggle();
 
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
@@ -108,21 +83,21 @@ export default class Kbd {
   };
 
   private get anInputIsFocused(): boolean {
-    return !this.chat.isFocused && !this.coordInputUi?.isFocused;
+    return !this.ui.chat.isFocused && !this.ui.coordInputUi?.isFocused;
   }
 
   private moveRight = (): void => {
-    if (this.anInputIsFocused) this.stoneMarkerUi?.move(Direction.right);
+    if (this.anInputIsFocused) this.ui.stoneMarkerUi?.move(Direction.right);
   };
 
   private moveDown = (): void => {
-    if (this.anInputIsFocused) this.stoneMarkerUi?.move(Direction.down);
+    if (this.anInputIsFocused) this.ui.stoneMarkerUi?.move(Direction.down);
   };
 
   private moveLeft = (): void => {
     if (this.anInputIsFocused) {
       this.skipAnalysis();
-      this.stoneMarkerUi?.move(Direction.left);
+      this.ui.stoneMarkerUi?.move(Direction.left);
     }
   };
 
@@ -136,10 +111,10 @@ export default class Kbd {
   };
 
   private moveUp = (): void => {
-    if (this.anInputIsFocused) this.stoneMarkerUi?.move(Direction.up);
+    if (this.anInputIsFocused) this.ui.stoneMarkerUi?.move(Direction.up);
   };
 
   private play = (): void => {
-    if (this.anInputIsFocused) this.stoneMarkerUi?.click();
+    if (this.anInputIsFocused) this.ui.stoneMarkerUi?.click();
   };
 }
