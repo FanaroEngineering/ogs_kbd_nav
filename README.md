@@ -71,6 +71,7 @@ If you don't want conflict with OGS' UI, prefer the WASD keys instead of the arr
 | --------------------------------- | ----------------------------------------------- |
 | <kbd>Ctrl</kbd> + <kbd>m</kbd>    | Toggle the chat input box on a game page        |
 | <kbd>Ctrl</kbd> + <kbd>b</kbd>    | Toggle the canvas overlay with the stone marker |
+| <kbd>Ctrl</kbd> + <kbd>]</kbd>    | Toggle the arrow keys                           |
 | <kbd>w</kbd> or <kbd>&uarr;</kbd> | Move the stone marker up                        |
 | <kbd>a</kbd> or <kbd>&larr;</kbd> | Move the stone marker left<sup>1</sup>          |
 | <kbd>s</kbd> or <kbd>&darr;</kbd> | Move the stone marker down                      |

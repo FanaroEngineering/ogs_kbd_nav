@@ -1,8 +1,10 @@
 import { Direction } from "../ui/stone_marker_ui";
 import Ui from "../ui/ui";
+import Config from "./config";
 
 export default class Kbd {
   private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
+  private config: Config = Config.default();
   private ui: Ui = new Ui();
 
   constructor() {
@@ -32,6 +34,10 @@ export default class Kbd {
 
   private toggleCoordInput = (): void => this.ui.coordInputUi?.toggle();
 
+  private toggleArrowKeys = (): void => {
+    this.config = this.config.toggleArrowKeys();
+  };
+
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
       case "b":
@@ -43,6 +49,9 @@ export default class Kbd {
       case "[":
         this.pass();
         break;
+      case "]":
+        this.toggleArrowKeys();
+        break;
       case ";":
         this.toggleAiReview();
         break;
@@ -53,25 +62,25 @@ export default class Kbd {
         this.moveRight();
         break;
       case "ArrowRight":
-        this.moveRight();
+        if (this.config.arrowKeysOn) this.moveRight();
         break;
       case "s":
         this.moveDown();
         break;
       case "ArrowDown":
-        this.moveDown();
+        if (this.config.arrowKeysOn) this.moveDown();
         break;
       case "a":
         this.moveLeft();
         break;
       case "ArrowLeft":
-        this.moveLeft();
+        if (this.config.arrowKeysOn) this.moveLeft();
         break;
       case "w":
         this.moveUp();
         break;
       case "ArrowUp":
-        this.moveUp();
+        if (this.config.arrowKeysOn) this.moveUp();
         break;
       case "Enter":
         this.play();
