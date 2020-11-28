@@ -65,7 +65,7 @@ At first I didn't believe any of the benefits above, but, after trying it out fo
 
 > You might experience the extension not working when you transition to a game page. In that case, simply refresh the page and it will most likely work again.
 
-If you don't want conflict with OGS' UI, prefer the WASD keys instead of the arrow keys.
+If you don't want conflict with OGS' UI, prefer the WASD keys instead of the arrow keys. The arrow keys are disabled by default, so they won't bother you initially.
 
 | Shortcut                          | Action                                          |
 | --------------------------------- | ----------------------------------------------- |
@@ -82,7 +82,7 @@ If you don't want conflict with OGS' UI, prefer the WASD keys instead of the arr
 | <kbd>Ctrl</kbd> +  <kbd>.</kbd>   | Toggle the coordinates input field<sup>2</sup>  |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the `Back to game` button in the background.</sub> 
-<br>
+\
 <sub>2: The coordinates should be of the form letter &mdash; lower or uppercase &mdash; and a number from 1 to 19. For example, both `c11` and `C11` are valid.</sub>
 
 ## 4. How to Install This Browser Extension
