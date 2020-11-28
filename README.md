@@ -67,20 +67,21 @@ At first I didn't believe any of the benefits above, but, after trying it out fo
 
 If you don't want conflict with OGS' UI, prefer the WASD keys instead of the arrow keys. The arrow keys are disabled by default, so they won't bother you initially.
 
-| Shortcut                          | Action                                              |
-| --------------------------------- | --------------------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>m</kbd>    | Toggle the chat input box on a game page            |
-| <kbd>Ctrl</kbd> + <kbd>b</kbd>    | Toggle the canvas overlay with the stone marker     |
-| <kbd>Ctrl</kbd> + <kbd>]</kbd>    | Toggle the arrow keys                               |
-| <kbd>w</kbd> or <kbd>&uarr;</kbd> | Move the stone marker up                            |
-| <kbd>a</kbd> or <kbd>&larr;</kbd> | Move the stone marker left<sup>1</sup>              |
-| <kbd>s</kbd> or <kbd>&darr;</kbd> | Move the stone marker down                          |
-| <kbd>d</kbd> or <kbd>&rarr;</kbd> | Move the stone marker right                         |
-| <kbd>Enter</kbd> or <kbd>f</kbd>  | Click on the stone marker's location                |
-| <kbd>Ctrl</kbd> + <kbd>[</kbd>    | Pass                                                |
-| <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                                  |
-| <kbd>Ctrl</kbd> + <kbd>,</kbd>    | Cycle through the different board sizes<sup>2</sup> |
-| <kbd>Ctrl</kbd> +  <kbd>.</kbd>   | Toggle the coordinates input field<sup>3</sup>      |
+| Shortcut                          | Action                                                 |
+| --------------------------------- | ------------------------------------------------------ |
+| <kbd>Ctrl</kbd> + <kbd>\\</kbd>   | Global switch: enables or disables the whole extension |
+| <kbd>Ctrl</kbd> + <kbd>m</kbd>    | Toggle the chat input box on a game page               |
+| <kbd>Ctrl</kbd> + <kbd>b</kbd>    | Toggle the canvas overlay with the stone marker        |
+| <kbd>Ctrl</kbd> + <kbd>]</kbd>    | Toggle the arrow keys                                  |
+| <kbd>w</kbd> or <kbd>&uarr;</kbd> | Move the stone marker up                               |
+| <kbd>a</kbd> or <kbd>&larr;</kbd> | Move the stone marker left<sup>1</sup>                 |
+| <kbd>s</kbd> or <kbd>&darr;</kbd> | Move the stone marker down                             |
+| <kbd>d</kbd> or <kbd>&rarr;</kbd> | Move the stone marker right                            |
+| <kbd>Enter</kbd> or <kbd>f</kbd>  | Click on the stone marker's location                   |
+| <kbd>Ctrl</kbd> + <kbd>[</kbd>    | Pass                                                   |
+| <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                                     |
+| <kbd>Ctrl</kbd> + <kbd>,</kbd>    | Cycle through the different board sizes<sup>2</sup>    |
+| <kbd>Ctrl</kbd> +  <kbd>.</kbd>   | Toggle the coordinates input field<sup>3</sup>         |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the <kbd>Back to game</kbd> button in the background.</sub> 
 \
