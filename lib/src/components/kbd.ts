@@ -55,6 +55,12 @@ export default class Kbd {
     this.config = this.config.toggleArrowKeys();
   };
 
+  private cycleGobanSize = (): void => {
+    this.config = this.config.cycleSize();
+    if (this.kbdEvt.ctrlKey)
+      this.ui.stoneMarkerUi?.cycleGobanSize(this.config.gobanSize);
+  };
+
   private keySwitch = (): void => {
     switch (this.kbdEvt.key) {
       case "b":
@@ -74,6 +80,9 @@ export default class Kbd {
         break;
       case ".":
         this.toggleCoordInput();
+        break;
+      case ",":
+        this.cycleGobanSize();
         break;
       case "d":
         this.moveRight();

@@ -1,3 +1,4 @@
+import { GobanSize } from "../components/config";
 import StoneMarker from "../components/stone_marker";
 
 export enum Direction {
@@ -12,6 +13,7 @@ export default class StoneMarkerUi {
     "div.Goban > div > canvas#shadow-canvas";
   private static readonly defaultCanvasSize: number = 504;
 
+  private gobanSize: GobanSize = GobanSize.full19x19;
   private stoneMarker: StoneMarker = new StoneMarker();
   private stoneMarkerCanvas: HTMLCanvasElement = document.createElement(
     "canvas"
@@ -39,7 +41,13 @@ export default class StoneMarkerUi {
   };
 
   private configureStoneMarker = (): void => {
-    this.stoneMarker = StoneMarker.changeRatio(this.stoneRatio);
+    this.stoneMarker = StoneMarker.changeRatio(this.stoneRatio, this.gobanSize);
+  };
+
+  cycleGobanSize = (gobanSize: GobanSize): void => {
+    this.toggleCanvas();
+    this.gobanSize = gobanSize;
+    this.toggleCanvas();
   };
 
   private removeStoneMarkerCanvas = (): void =>

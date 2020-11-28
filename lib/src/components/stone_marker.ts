@@ -1,3 +1,5 @@
+import { GobanSize } from "./config";
+
 export default class StoneMarker {
   constructor(
     private readonly data: StoneMarkerData = StoneMarkerData.default()
@@ -67,15 +69,22 @@ export default class StoneMarker {
         )
       : this;
 
-  static changeRatio = (ratio: number): StoneMarker =>
-    new StoneMarker(StoneMarkerData.fromRatio(ratio));
+  static changeRatio = (
+    ratio: number,
+    gobanSize: GobanSize = GobanSize.full19x19
+  ): StoneMarker =>
+    new StoneMarker(StoneMarkerData.fromRatio(ratio, gobanSize));
 
-  static fromCoordinates = (coord: string, ratio: number = 1): StoneMarker => {
+  static fromCoordinates = (
+    coord: string,
+    ratio: number = 1,
+    gobanSize: GobanSize = GobanSize.full19x19
+  ): StoneMarker => {
     const preGobanX: number = coord.match("[a-t]")![0].charCodeAt(0) - 96;
     const gobanX: number = preGobanX > 8 ? preGobanX - 1 : preGobanX;
     const gobanY: number = +coord.match("[0-1]?[0-9]")![0];
 
-    let stoneMarker: StoneMarker = StoneMarker.changeRatio(ratio);
+    let stoneMarker: StoneMarker = StoneMarker.changeRatio(ratio, gobanSize);
 
     for (let i = 0; i < gobanX - 1; i++) stoneMarker = stoneMarker.moveRight();
     for (let i = 0; i < gobanY - 1; i++) stoneMarker = stoneMarker.moveUp();
@@ -85,25 +94,76 @@ export default class StoneMarker {
 }
 
 export class StoneMarkerData {
-  private static readonly defaultRadiusDxDy = 8;
-  private static readonly defaultX = 35.75;
-  private static readonly defaultY = 467.75;
+  private static readonly default19x19RadiusDxDy = 8;
+  private static readonly default19x19X = 35.75;
+  private static readonly default19x19Y = 467.75;
 
-  static default = (): StoneMarkerData => new StoneMarkerData();
+  private static readonly default13x13Radius = 11;
+  private static readonly default13x13DxDy = 11.5875;
+  private static readonly default13x13X = 50.525;
+  private static readonly default13x13Y = 453.65;
 
-  static fromRatio = (ratio: number): StoneMarkerData =>
-    new StoneMarkerData(
-      ratio * StoneMarkerData.defaultRadiusDxDy,
-      ratio * StoneMarkerData.defaultRadiusDxDy,
-      ratio * StoneMarkerData.defaultX,
-      ratio * StoneMarkerData.defaultY
-    );
+  private static readonly default9x9Radius = 14;
+  private static readonly default9x9DxDy = 17.8;
+  private static readonly default9x9X = 68.5;
+  private static readonly default9x9Y = 435;
 
+  static default = (
+    gobanSize: GobanSize = GobanSize.full19x19
+  ): StoneMarkerData => {
+    switch (gobanSize) {
+      case GobanSize.full19x19:
+        return new StoneMarkerData();
+      case GobanSize.medium13x13:
+        return new StoneMarkerData(
+          StoneMarkerData.default13x13Radius,
+          StoneMarkerData.default13x13DxDy,
+          StoneMarkerData.default13x13X,
+          StoneMarkerData.default13x13Y
+        );
+      case GobanSize.small9x9:
+        return new StoneMarkerData(
+          StoneMarkerData.default9x9Radius,
+          StoneMarkerData.default9x9DxDy,
+          StoneMarkerData.default9x9X,
+          StoneMarkerData.default9x9Y
+        );
+    }
+  };
+
+  static fromRatio = (
+    ratio: number,
+    gobanSize: GobanSize = GobanSize.full19x19
+  ): StoneMarkerData => {
+    switch (gobanSize) {
+      case GobanSize.full19x19:
+        return new StoneMarkerData(
+          ratio * StoneMarkerData.default19x19RadiusDxDy,
+          ratio * StoneMarkerData.default19x19RadiusDxDy,
+          ratio * StoneMarkerData.default19x19X,
+          ratio * StoneMarkerData.default19x19Y
+        );
+      case GobanSize.medium13x13:
+        return new StoneMarkerData(
+          ratio * StoneMarkerData.default13x13Radius,
+          ratio * StoneMarkerData.default13x13DxDy,
+          ratio * StoneMarkerData.default13x13X,
+          ratio * StoneMarkerData.default13x13Y
+        );
+      case GobanSize.small9x9:
+        return new StoneMarkerData(
+          ratio * StoneMarkerData.default9x9Radius,
+          ratio * StoneMarkerData.default9x9DxDy,
+          ratio * StoneMarkerData.default9x9X,
+          ratio * StoneMarkerData.default9x9Y
+        );
+    }
+  };
   private constructor(
-    readonly radius: number = StoneMarkerData.defaultRadiusDxDy,
-    readonly dxdy: number = StoneMarkerData.defaultRadiusDxDy,
-    readonly x: number = StoneMarkerData.defaultX,
-    readonly y: number = StoneMarkerData.defaultY,
+    readonly radius: number = StoneMarkerData.default19x19RadiusDxDy,
+    readonly dxdy: number = StoneMarkerData.default19x19RadiusDxDy,
+    readonly x: number = StoneMarkerData.default19x19X,
+    readonly y: number = StoneMarkerData.default19x19Y,
     readonly gobanX: number = 1,
     readonly gobanY: number = 1
   ) {}

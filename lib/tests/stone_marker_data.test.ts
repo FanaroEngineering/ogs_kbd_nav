@@ -1,3 +1,4 @@
+import { GobanSize } from "../src/components/config";
 import { StoneMarkerData } from "../src/components/stone_marker";
 
 test("The diameter of the config should be double the radius", () => {
@@ -41,4 +42,17 @@ test("fromRatio gives back new stone marker data that only multiplies the defaul
   expect(doubledStoneMarkerData.dxdy).toBe(2 * 8);
   expect(doubledStoneMarkerData.gobanX).toBe(1);
   expect(doubledStoneMarkerData.gobanY).toBe(1);
+});
+
+test("Medium goban size", () => {
+  const mediumGobanInitialData: StoneMarkerData = StoneMarkerData.default(
+    GobanSize.medium13x13
+  );
+
+  expect(mediumGobanInitialData.x).toBe(40);
+  expect(mediumGobanInitialData.y).toBe(400);
+  expect(mediumGobanInitialData.radius).toBe(12);
+  expect(mediumGobanInitialData.dxdy).toBe(12);
+  expect(mediumGobanInitialData.gobanX).toBe(1);
+  expect(mediumGobanInitialData.gobanY).toBe(1);
 });
