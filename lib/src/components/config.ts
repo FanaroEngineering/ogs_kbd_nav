@@ -6,32 +6,28 @@ export enum GobanSize {
 
 export default class Config {
   private constructor(
-    private readonly _arrowKeysOn: boolean = false,
-    private readonly _gobanSize: GobanSize = GobanSize.full19x19
+    readonly globalSwitch: boolean = true,
+    readonly arrowKeysOn: boolean = false,
+    readonly gobanSize: GobanSize = GobanSize.full19x19
   ) {}
 
   static default = (): Config => new Config();
 
-  get arrowKeysOn(): boolean {
-    return this._arrowKeysOn;
-  }
-
-  get gobanSize(): GobanSize {
-    return this._gobanSize;
-  }
+  toggleGlobalSwitch = (): Config =>
+    new Config(!this.globalSwitch, this.arrowKeysOn, this.gobanSize);
 
   toggleArrowKeys = (): Config =>
-    new Config(!this._arrowKeysOn, this._gobanSize);
+    new Config(this.globalSwitch, !this.arrowKeysOn, this.gobanSize);
 
   cycleSize = (): Config => {
     let nextSizeIndex: number;
-    if (this._gobanSize == 2) nextSizeIndex = 0;
-    else nextSizeIndex = this._gobanSize + 1;
+    if (this.gobanSize == 2) nextSizeIndex = 0;
+    else nextSizeIndex = this.gobanSize + 1;
 
     const nextSize: GobanSize = Object.values(GobanSize).indexOf(
       Object.values(GobanSize)[nextSizeIndex]
     );
 
-    return new Config(this._arrowKeysOn, nextSize);
+    return new Config(this.globalSwitch, this.arrowKeysOn, nextSize);
   };
 }
