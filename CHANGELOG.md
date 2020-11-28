@@ -2,7 +2,7 @@
 
 ## 1.0.1
 
-### New Features:
+### New Features
 
 - Global switch shortcut for globally enabling/disabling the whole extension.
 - Added support for different Goban sizes &mdash; currently 9x9, 13x13 and 19x19.
