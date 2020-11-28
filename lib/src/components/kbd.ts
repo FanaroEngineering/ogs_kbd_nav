@@ -13,7 +13,24 @@ export default class Kbd {
 
   private onKeydown = (evt: KeyboardEvent) => {
     this.kbdEvt = evt;
-    this.keySwitch();
+    this.globalSwitch();
+  };
+
+  private globalSwitch = (): void => {
+    switch (this.kbdEvt.key) {
+      case "\\":
+        this.globalToggle();
+        break;
+      default:
+        if (this.config.globalSwitch) this.keySwitch();
+    }
+  };
+
+  private globalToggle = (): void => {
+    if (this.kbdEvt.ctrlKey) {
+      this.config = this.config.toggleGlobalSwitch();
+      this.ui.stoneMarkerUi?.toggleCanvas();
+    }
   };
 
   private toggleCanvas = (): void => {
