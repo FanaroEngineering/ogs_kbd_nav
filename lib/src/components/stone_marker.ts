@@ -81,8 +81,21 @@ export default class StoneMarker {
     gobanSize: GobanSize = GobanSize.full19x19
   ): StoneMarker => {
     const preGobanX: number = coord.match("[a-t]")![0].charCodeAt(0) - 96;
-    const gobanX: number = preGobanX > 8 ? preGobanX - 1 : preGobanX;
-    const gobanY: number = +coord.match("[0-1]?[0-9]")![0];
+    let gobanX: number = preGobanX > 8 ? preGobanX - 1 : preGobanX;
+    let gobanY: number = +coord.match("[0-1]?[0-9]")![0];
+
+    switch (gobanSize) {
+      case GobanSize.full19x19:
+        break;
+      case GobanSize.medium13x13:
+        gobanX = Math.min(13, gobanX);
+        gobanY = Math.min(13, gobanY);
+        break;
+      case GobanSize.small9x9:
+        gobanX = Math.min(9, gobanX);
+        gobanY = Math.min(9, gobanY);
+        break;
+    }
 
     let stoneMarker: StoneMarker = StoneMarker.changeRatio(ratio, gobanSize);
 

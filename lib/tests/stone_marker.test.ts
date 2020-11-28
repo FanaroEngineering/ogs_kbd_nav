@@ -99,8 +99,11 @@ test("Changing the ratio changes the proportions and position of the stone marke
 
 test("Changing the ratio also allows for changing the goban size", () => {
   const stoneMarker: StoneMarker = new StoneMarker();
-  const changedStoneMarker: StoneMarker = StoneMarker.changeRatio(2, GobanSize.medium13x13);
-  
+  const changedStoneMarker: StoneMarker = StoneMarker.changeRatio(
+    2,
+    GobanSize.medium13x13
+  );
+
   expect(stoneMarker.x).toBe(35.75);
   expect(stoneMarker.y).toBe(467.75);
   expect(stoneMarker.radius).toBe(8);
@@ -117,5 +120,12 @@ test("Goban coordinates as numerical coordinates", () => {
 });
 
 test("Coordinates input also allows for changing the Goban size", () => {
-  
+  const stoneMarker: StoneMarker = StoneMarker.fromCoordinates(
+    "c13",
+    1,
+    GobanSize.small9x9
+  );
+
+  expect(stoneMarker.x).toBe(68.5 + 4 * 14 + 2 * 17.8);
+  expect(stoneMarker.y).toBeLessThan(69);
 });
