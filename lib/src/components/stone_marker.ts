@@ -21,8 +21,19 @@ export default class StoneMarker {
     return this.data.diameter + this.data.dxdy;
   }
 
+  private get maxBoundary(): number {
+    switch (this.data.gobanSize) {
+      case GobanSize.full19x19:
+        return 19;
+      case GobanSize.medium13x13:
+        return 13;
+      case GobanSize.small9x9:
+        return 9;
+    }
+  }
+
   private get notRightEdge(): boolean {
-    if (this.data.gobanX < 19) return true;
+    if (this.data.gobanX < this.maxBoundary) return true;
     else return false;
   }
 
@@ -58,7 +69,7 @@ export default class StoneMarker {
       : this;
 
   private get notTopEdge(): boolean {
-    if (this.data.gobanY < 19) return true;
+    if (this.data.gobanY < this.maxBoundary) return true;
     else return false;
   }
 
@@ -132,14 +143,20 @@ export class StoneMarkerData {
           StoneMarkerData.default13x13Radius,
           StoneMarkerData.default13x13DxDy,
           StoneMarkerData.default13x13X,
-          StoneMarkerData.default13x13Y
+          StoneMarkerData.default13x13Y,
+          1,
+          1,
+          GobanSize.medium13x13
         );
       case GobanSize.small9x9:
         return new StoneMarkerData(
           StoneMarkerData.default9x9Radius,
           StoneMarkerData.default9x9DxDy,
           StoneMarkerData.default9x9X,
-          StoneMarkerData.default9x9Y
+          StoneMarkerData.default9x9Y,
+          1,
+          1,
+          GobanSize.small9x9
         );
     }
   };
@@ -161,14 +178,20 @@ export class StoneMarkerData {
           ratio * StoneMarkerData.default13x13Radius,
           ratio * StoneMarkerData.default13x13DxDy,
           ratio * StoneMarkerData.default13x13X,
-          ratio * StoneMarkerData.default13x13Y
+          ratio * StoneMarkerData.default13x13Y,
+          1,
+          1,
+          GobanSize.medium13x13
         );
       case GobanSize.small9x9:
         return new StoneMarkerData(
           ratio * StoneMarkerData.default9x9Radius,
           ratio * StoneMarkerData.default9x9DxDy,
           ratio * StoneMarkerData.default9x9X,
-          ratio * StoneMarkerData.default9x9Y
+          ratio * StoneMarkerData.default9x9Y,
+          1,
+          1,
+          GobanSize.small9x9
         );
     }
   };
@@ -178,7 +201,8 @@ export class StoneMarkerData {
     readonly x: number = StoneMarkerData.default19x19X,
     readonly y: number = StoneMarkerData.default19x19Y,
     readonly gobanX: number = 1,
-    readonly gobanY: number = 1
+    readonly gobanY: number = 1,
+    readonly gobanSize: GobanSize = GobanSize.full19x19
   ) {}
 
   get diameter(): number {
@@ -192,7 +216,8 @@ export class StoneMarkerData {
       newX,
       this.y,
       newGobanX,
-      this.gobanY
+      this.gobanY,
+      this.gobanSize
     );
 
   copyWithY = (newY: number, newGobanY: number) =>
@@ -202,6 +227,7 @@ export class StoneMarkerData {
       this.x,
       newY,
       this.gobanX,
-      newGobanY
+      newGobanY,
+      this.gobanSize
     );
 }
