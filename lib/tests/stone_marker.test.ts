@@ -1,3 +1,4 @@
+import { GobanSize } from "../src/components/config";
 import StoneMarker from "../src/components/stone_marker";
 
 test("The stone marker is initialized with (35.75, 467.75) as coordinates", () => {
@@ -96,9 +97,25 @@ test("Changing the ratio changes the proportions and position of the stone marke
   expect(changedStoneMarker.radius).toBe(16);
 });
 
+test("Changing the ratio also allows for changing the goban size", () => {
+  const stoneMarker: StoneMarker = new StoneMarker();
+  const changedStoneMarker: StoneMarker = StoneMarker.changeRatio(2, GobanSize.medium13x13);
+  
+  expect(stoneMarker.x).toBe(35.75);
+  expect(stoneMarker.y).toBe(467.75);
+  expect(stoneMarker.radius).toBe(8);
+  expect(changedStoneMarker.x).toBe(2 * 50.525);
+  expect(changedStoneMarker.y).toBe(2 * 453.65);
+  expect(changedStoneMarker.radius).toBe(2 * 11);
+});
+
 test("Goban coordinates as numerical coordinates", () => {
   const stoneMarker: StoneMarker = StoneMarker.fromCoordinates("c11");
 
   expect(stoneMarker.x).toBe(35.75 + 2 * 3 * 8);
   expect(stoneMarker.y).toBe(467.75 - 10 * 3 * 8);
+});
+
+test("Coordinates input also allows for changing the Goban size", () => {
+  
 });

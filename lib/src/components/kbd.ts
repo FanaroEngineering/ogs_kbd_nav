@@ -56,9 +56,11 @@ export default class Kbd {
   };
 
   private cycleGobanSize = (): void => {
-    this.config = this.config.cycleSize();
-    if (this.kbdEvt.ctrlKey)
+    if (this.kbdEvt.ctrlKey) {
+      this.config = this.config.cycleSize();
+      this.ui.coordInputUi?.changeGobanSize(this.config.gobanSize);
       this.ui.stoneMarkerUi?.cycleGobanSize(this.config.gobanSize);
+    }
   };
 
   private keySwitch = (): void => {

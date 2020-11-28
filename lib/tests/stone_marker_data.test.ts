@@ -44,15 +44,28 @@ test("fromRatio gives back new stone marker data that only multiplies the defaul
   expect(doubledStoneMarkerData.gobanY).toBe(1);
 });
 
-test("Medium goban size", () => {
+test("Medium, 13x13, goban size", () => {
   const mediumGobanInitialData: StoneMarkerData = StoneMarkerData.default(
     GobanSize.medium13x13
   );
 
-  expect(mediumGobanInitialData.x).toBe(40);
-  expect(mediumGobanInitialData.y).toBe(400);
-  expect(mediumGobanInitialData.radius).toBe(12);
-  expect(mediumGobanInitialData.dxdy).toBe(12);
+  expect(mediumGobanInitialData.x).toBe(50.525);
+  expect(mediumGobanInitialData.y).toBe(453.65);
+  expect(mediumGobanInitialData.radius).toBe(11);
+  expect(mediumGobanInitialData.dxdy).toBe(11.5875);
   expect(mediumGobanInitialData.gobanX).toBe(1);
   expect(mediumGobanInitialData.gobanY).toBe(1);
+});
+
+test("Small, 9x9, goban size", () => {
+  const smallGobanInitialData: StoneMarkerData = StoneMarkerData.default(
+    GobanSize.small9x9
+  );
+
+  expect(smallGobanInitialData.x).toBe(68.5);
+  expect(smallGobanInitialData.y).toBe(435);
+  expect(smallGobanInitialData.radius).toBe(14);
+  expect(smallGobanInitialData.dxdy).toBe(17.8);
+  expect(smallGobanInitialData.gobanX).toBe(1);
+  expect(smallGobanInitialData.gobanY).toBe(1);
 });

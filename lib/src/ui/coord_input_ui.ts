@@ -1,6 +1,8 @@
+import { GobanSize } from "../components/config";
 import StoneMarker from "../components/stone_marker";
 
 export default class CoordInputUi {
+  private gobanSize: GobanSize = GobanSize.full19x19;
   private coordinates: string = "";
   private coordInput: HTMLInputElement = document.createElement(
     "input"
@@ -21,6 +23,10 @@ export default class CoordInputUi {
 
     rightColDiv.append(this.coordInputDiv);
   }
+
+  changeGobanSize = (gobanSize: GobanSize): void => {
+    this.gobanSize = gobanSize;
+  };
 
   private style = (): void => {
     this.coordInput.id = "coordinates";
@@ -70,7 +76,8 @@ export default class CoordInputUi {
       this.coordinates = this.coordInput.value.toLowerCase();
       this.stoneMarker = StoneMarker.fromCoordinates(
         this.coordinates,
-        this.ratio
+        this.ratio,
+        this.gobanSize
       );
       this.click();
       this.coordInput.value = "";
