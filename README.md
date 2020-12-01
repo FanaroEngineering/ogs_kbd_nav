@@ -108,7 +108,7 @@ Choose one of the links below:
 
 
 [chrome]: https://chrome.google.com/webstore/detail/ogs-kbd-nav/blcjnnogmdhggfgdpploigilegjdopmp?hl=en&authuser=0
-[edge]: https://microsoftedge.microsoft.com/addons/detail/ogs-kbd-nav/
+[edge]: https://microsoftedge.microsoft.com/addons/detail/ogs-kbd-nav/hghfjmadiodnkelleppombenchlcbjol
 [firefox]: https://addons.mozilla.org/en-US/firefox/addon/ogs-kbd-nav/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
 
 ### 4.2. From a Github Release
