@@ -2,6 +2,17 @@
   "name": "ogs-kbd-nav",
   "version": "0.0.1",
   "description": "OGS Keyboard Navigation to the max.",
+  "keywords": [
+    "productivity",
+    "keyboard",
+    "shortcuts",
+    "go",
+    "baduk",
+    "weiqi",
+    "囲碁",
+    "바둑",
+    "围棋"
+  ],
   "author": "Philippe Fanaro",
   "license": "ISC",
   "main": "dist/content.js",
