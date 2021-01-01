@@ -1,46 +1,79 @@
-# OGS Kbd Nav
+<p align="center">
+  <img src="assets/favicon.svg" height="250px">
+</p>
 
-[![Downloads][github_downloads]][github_releases]
-[![TS][github_ci_badge]][github_actions]
-[![Gitter][gitter_svg]][gitter_badge]
-[![Buy Me A Coffee][buy_me_a_coffee_badge]][buy_me_a_coffee_donation]
+<p align="center">
+  <a href="https://github.com/FanaroEngineering/ogs_kbd_nav/releases"><img src="https://img.shields.io/github/downloads/FanaroEngineering/ogs_kbd_nav/total.svg" alt="Downloads" /></a>
+  <a href="https://github.com/FanaroEngineering/ogs_kbd_nav/actions"><img src="https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg" alt="Github CI" /></a>
+  <a href="https://gitter.im/OGS-Kbd-Nav/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/OGS-Kbd-Nav/community.svg" alt="Gitter" /></a>
+  <a href="https://www.buymeacoffee.com/psygo"><img src="assets/buy_me_a_coffee_shield.svg" alt="Buy Me a Coffee! | Sponsor Me!" /></a>
+</p>
+
+# OGS Kbd Nav
 
 > **Check out the respective post on my website [here][fanaro_post].**
 
-[![GIF][gif]][github_releases]
+<p align="center">
+  <a href="https://github.com/FanaroEngineering/ogs_kbd_nav/releases"><img src="assets/demo.gif" alt="Demo GIF" /></a>
+</p>
 
 
-[buy_me_a_coffee_badge]: assets/buy_me_a_coffee_shield.svg
-[buy_me_a_coffee_donation]: https://www.buymeacoffee.com/psygo
 [fanaro_post]: https://fanaro.com.br/ogs-kbd-nav/
-[gif]: assets/demo.gif
-[github_actions]: https://github.com/FanaroEngineering/ogs_kbd_nav/actions
-[github_ci_badge]: https://github.com/FanaroEngineering/ogs_kbd_nav/workflows/TS/badge.svg
-[github_downloads]: https://img.shields.io/github/downloads/FanaroEngineering/ogs_kbd_nav/total.svg
-[github_releases]: https://github.com/FanaroEngineering/ogs_kbd_nav/releases
-[gitter_svg]: https://badges.gitter.im/OGS-Kbd-Nav/community.svg
-[gitter_badge]: https://gitter.im/OGS-Kbd-Nav/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-<!-- TOC depthFrom:2 -->
+---
 
-- [1. What is this?](#1-what-is-this)
-- [2. Why?](#2-why)
-- [3. Table of Shortcuts](#3-table-of-shortcuts)
-- [4. How to Install This Browser Extension](#4-how-to-install-this-browser-extension)
-    - [4.1. From the Different Stores](#41-from-the-different-stores)
-    - [4.2. From a Github Release](#42-from-a-github-release)
-        - [4.2.1. Google Chrome](#421-google-chrome)
-        - [4.2.2. Firefox](#422-firefox)
-        - [4.2.3. Microsoft Edge](#423-microsoft-edge)
-- [5. Other Resources](#5-other-resources)
-- [6. For the Developer](#6-for-the-developer)
-    - [6.1. How does this work?](#61-how-does-this-work)
-    - [6.2. Compiling with TypeScript](#62-compiling-with-typescript)
-    - [6.3. Compiling with Webpack](#63-compiling-with-webpack)
-    - [6.4. Running Tests](#64-running-tests)
-    - [6.5. The Complete Development Setup](#65-the-complete-development-setup)
+**Table of Contents**
 
-<!-- /TOC -->
+<div id="user-content-toc">
+  <ul>
+    <li><a href="#1-what-is-this">1. What is this?</a></li>
+    <li><a href="#2-why">2. Why?</a></li>
+    <li><a href="#3-table-of-shortcuts">3. Table of Shortcuts</a></li>
+    <li>
+      <a href="#4-how-to-install-this-browser-extension"
+        >4. How to Install This Browser Extension</a
+      >
+      <ul>
+        <li>
+          <a href="#41-from-the-different-stores"
+            >4.1. From the Different Stores</a
+          >
+        </li>
+        <li>
+          <a href="#42-from-a-github-release">4.2. From a Github Release</a>
+          <ul>
+            <li><a href="#421-google-chrome">4.2.1. Google Chrome</a></li>
+            <li><a href="#422-firefox">4.2.2. Firefox</a></li>
+            <li><a href="#423-microsoft-edge">4.2.3. Microsoft Edge</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-other-resources">5. Other Resources</a></li>
+    <li>
+      <a href="#6-for-the-developer">6. For the Developer</a>
+      <ul>
+        <li><a href="#61-how-does-this-work">6.1. How does this work?</a></li>
+        <li>
+          <a href="#62-compiling-with-typescript"
+            >6.2. Compiling with TypeScript</a
+          >
+        </li>
+        <li>
+          <a href="#63-compiling-with-webpack">6.3. Compiling with Webpack</a>
+        </li>
+        <li><a href="#64-running-tests">6.4. Running Tests</a></li>
+        <li>
+          <a href="#65-the-complete-development-setup"
+            >6.5. The Complete Development Setup</a
+          >
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+---
 
 ## 1. What is this?
 

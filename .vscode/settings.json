@@ -6,5 +6,7 @@
         "**/package-lock.json": false,
     },
     "markdown.extension.toc.levels": "2..6",
-    "markdown-toc.depthFrom": 2,
+    "markdownlint.config": {
+        "MD036": false
+    }
 }
