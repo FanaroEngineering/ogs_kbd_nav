@@ -9,6 +9,8 @@
   <a href="https://www.buymeacoffee.com/psygo"><img src="assets/buy_me_a_coffee_shield.svg" alt="Buy Me a Coffee! | Sponsor Me!" /></a>
 </p>
 
+---
+
 # OGS Kbd Nav
 
 > **Check out the respective post on my website [here][fanaro_post].**
