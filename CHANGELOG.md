@@ -1,8 +1,9 @@
 # Changelog
 
-## 1.0.2.
+## 1.0.2
 
 - A logo on the nav bar appears when the user enables the extension.
+- Press <kbd>j</kbd> for confirming/submitting the move &mdash; mostly used in correspondence games.
 
 ## 1.0.1
 
