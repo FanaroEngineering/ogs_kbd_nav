@@ -1,16 +1,14 @@
 import { Direction } from "../ui/stone_marker_ui";
 import Ui from "../ui/ui";
 import Config from "./config";
-import Logo from "./logo";
 
 export default class Kbd {
   private kbdEvt: KeyboardEvent = new KeyboardEvent("keypress");
   private config: Config = Config.default();
   private ui: Ui = new Ui();
-  private readonly logo: Logo = new Logo();
 
   constructor() {
-    this.logo.toggle();
+    this.ui.logo.toggle();
     document.onkeydown = this.onKeydown;
   }
 
@@ -33,7 +31,7 @@ export default class Kbd {
     if (this.kbdEvt.ctrlKey) {
       this.config = this.config.toggleGlobalSwitch();
       this.ui.stoneMarkerUi?.toggleCanvas();
-      this.logo.toggle();
+      this.ui.logo.toggle();
     }
   };
 
@@ -120,8 +118,13 @@ export default class Kbd {
       case "f":
         this.play();
         break;
+      case "j":
+        this.confirm();
+        break;
     }
   };
+
+  private confirm = (): void => this.ui.confirmMove.click();
 
   private get anInputIsFocused(): boolean {
     return !this.ui.chat.isFocused && !this.ui.coordInputUi?.isFocused;

@@ -119,12 +119,15 @@ The extension has its logo right next to OGS' when active. At first, the extensi
 | <kbd>Ctrl</kbd> + <kbd>;</kbd>    | Toggle AI Analysis                                     |
 | <kbd>Ctrl</kbd> + <kbd>,</kbd>    | Cycle through the different board sizes<sup>2</sup>    |
 | <kbd>Ctrl</kbd> +  <kbd>.</kbd>   | Toggle the coordinates input field<sup>3</sup>         |
+| <kbd>j</kbd>                      | Press the submit button<sup>4</sup>                    |
 
 <sub>1: Using the left arrow also may activate analysis during the game, so I'm currently programmatically pressing the <kbd>Back to game</kbd> button in the background.</sub> 
 \
 <sub>2: The extension has no way of identifying that you're on a smaller Goban size &mdash; only 19x19, 13x13 and 9x9 sizes are currently supported &mdash; so you will have to use this shortcut in order to manually achieve what you're looking for. And toggling to the right size is also necessary for the coordinates input field to work properly.</sub>
 \
 <sub>3: The coordinates should be of the form letter &mdash; lower or uppercase &mdash; and a number from 1 to 19. For example, both `c11` and `C11` are valid.</sub>
+\
+<sub>4: Typically used in correspondence games.</sub>
 
 ## 4. How to Install This Browser Extension
 
