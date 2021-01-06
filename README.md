@@ -102,6 +102,8 @@ At first I didn't believe any of the benefits above, but, after trying it out fo
 
 If you don't want conflict with OGS' UI, prefer the WASD keys instead of the arrow keys. The arrow keys are disabled by default, so they won't bother you initially.
 
+The extension has its logo right next to OGS' when active. At first, the extension will be enabled but its canvas overlay with the stone marker might not, use <kbd>Ctrl</kbd> + <kbd>b</kbd> to then enable the stone marker.
+
 | Shortcut                          | Action                                                 |
 | --------------------------------- | ------------------------------------------------------ |
 | <kbd>Ctrl</kbd> + <kbd>\\</kbd>   | Global switch: enables or disables the whole extension |

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2.
+
+- A logo on the nav bar appears when the user enables the extension.
+
 ## 1.0.1
 
 ### New Features
